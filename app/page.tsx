@@ -1,4 +1,7 @@
 import { Metadata } from "next";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export const metadata: Metadata = {
   title: "Home | Nutrify",
@@ -6,5 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <h1>Nutrify</h1>;
+  return (
+    <div>
+      <header></header>
+      <main></main>
+    </div>
+  );
 }
