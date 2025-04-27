@@ -1,4 +1,7 @@
 import { Metadata } from "next";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export const metadata: Metadata = {
   title: "Home | Nutrify",
@@ -6,5 +9,34 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <h1>Nutrify</h1>;
+  return (
+    <div>
+      <header>
+        {/* Jumbotron */}
+        <div className="relative w-full h-screen">
+          <Image src="/Background1.png" alt="Jumbotron" fill className="object-cover object-center" priority />
+          {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
+          <div className="absolute inset-0 flex flex-col justify-center">
+            <div className="container mx-auto px-4">
+              <h1 className="text-4xl font-bold ">
+                Kenali <span className="text-orange-500">Makanan</span> di Sekitarmu,
+                <br /> Jaga <span className="text-green-700">Kesehatan</span>mu
+              </h1>
+              <p className="mt-2 text-lg text-gray-500">
+                Temukan informasi nutrisi, tips sehat, dan inspirasi <br />
+                gaya hidup mulai dari apa yang kamu makan.
+              </p>
+              <div className="flex mt-4 max-w-md">
+                <Input placeholder="Cari Makanan atau Minuman..." className="rounded-r-none h-12 focus-visible:ring-offset-0 focus-visible:ring-0" />
+                <Button type="submit" className="rounded-l-none h-12">
+                  Explore
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main></main>
+    </div>
+  );
 }

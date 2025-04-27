@@ -1,5 +1,6 @@
 import { Poppins, Work_Sans } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/main/Navbar";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${workSans.variable} antialiased`}>{children}</body>
+      <body className={`${poppins.variable} ${workSans.variable} antialiased`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
