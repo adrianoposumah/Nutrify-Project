@@ -11,32 +11,42 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
-      <header>
+      <section className="relative w-full h-[500] lg:h-screen mt-0">
         {/* Jumbotron */}
-        <div className="relative w-full h-screen">
-          <Image src="/Background1.png" alt="Jumbotron" fill className="object-cover object-center" priority />
-          {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
-          <div className="absolute inset-0 flex flex-col justify-center">
-            <div className="container mx-auto px-4">
-              <h1 className="text-4xl font-bold ">
-                Kenali <span className="text-orange-500">Makanan</span> di Sekitarmu,
-                <br /> Jaga <span className="text-green-700">Kesehatan</span>mu
-              </h1>
-              <p className="mt-2 text-lg text-gray-500">
-                Temukan informasi nutrisi, tips sehat, dan inspirasi <br />
-                gaya hidup mulai dari apa yang kamu makan.
-              </p>
-              <div className="flex mt-4 max-w-md">
-                <Input placeholder="Cari Makanan atau Minuman..." className="rounded-r-none h-12 focus-visible:ring-offset-0 focus-visible:ring-0" />
-                <Button type="submit" className="rounded-l-none h-12">
-                  Explore
-                </Button>
-              </div>
+
+        <Image src="/Background1.png" alt="Jumbotron" fill className="object-cover object-center" priority />
+        {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
+        <div className="absolute inset-0 flex flex-col justify-center">
+          <div className="container mx-auto px-4">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold ">
+              Kenali <span className="text-orange-500">Makanan</span> di Sekitarmu,
+              <br /> Jaga <span className="text-green-700">Kesehatan</span>mu
+            </h1>
+            <p className="mt-2 text-sm md:text-lg text-gray-500">
+              Temukan informasi nutrisi, tips sehat, dan inspirasi <br />
+              gaya hidup mulai dari apa yang kamu makan.
+            </p>
+            <div className="flex mt-10 max-w-md">
+              <Input placeholder="Cari Makanan atau Minuman..." className="shadow-none border-none rounded-r-none h-13 focus-visible:ring-offset-0 focus-visible:ring-0 bg-white" />
+              <Button type="submit" className="rounded-l-none h-13 w-25">
+                Explore
+              </Button>
             </div>
           </div>
         </div>
-      </header>
-      <main></main>
+      </section>
+      <main>
+        {/* About Us */}
+        <section className="container mx-auto px-4 py-20 text-center">
+          <h1>
+            Tentang <span className="text-orange-500">Nutrify</span>
+          </h1>
+          <p className="lg:w-250 mt-3 mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati possimus sed architecto, impedit mollitia vero voluptatibus iste officia, tempore temporibus aliquam quidem harum accusantium perspiciatis adipisci nemo
+            aperiam. Consectetur architecto, aperiam nihil illo hic voluptatem? Ducimus ut numquam nihil cum.
+          </p>
+        </section>
+      </main>
     </div>
   );
 }
