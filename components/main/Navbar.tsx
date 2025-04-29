@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 /** @jsxImportSource react */
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
 
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+
+import ThemeToggle from "../ui/ThemeToggle";
+import { Menu } from "lucide-react";
 
 const routes = [
   {
@@ -61,13 +63,14 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center space-x-6">
           {routes.map((route) => (
-            <Link key={route.href} href={route.href} className={cn(" font-medium transition-colors hover:text-orange-500", pathname === route.href ? "text-orange-500" : "text-muted-foreground")}>
+            <Link key={route.href} href={route.href} className={cn("text-base font-medium transition-colors hover:text-orange-500", pathname === route.href ? "text-orange-500" : "text-muted-foreground")}>
               {route.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex item-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
+          <ThemeToggle />
           <Button variant="outline" className="bg-transparent text-orange-500 border-orange-500 hover:text-white hover:bg-orange-500" asChild>
             <Link href="/sign-up">Sign Up</Link>
           </Button>
@@ -75,35 +78,37 @@ const Navbar = () => {
             <Link href="/sign-in">Sign In</Link>
           </Button>
         </div>
-
-        <Sheet>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right">
-            <SheetHeader>
-              <SheetTitle>Navigation</SheetTitle>
-            </SheetHeader>
-            <nav className="flex flex-col space-y-4 px-4">
-              {routes.map((route) => (
-                <Link key={route.href} href={route.href} className={cn("text-sm font-medium transition-colors hover:text-orange-500", pathname === route.href ? "text-orange-500" : "text-muted-foreground")}>
-                  {route.label}
-                </Link>
-              ))}
-              <div className="pt-4 flex flex-col space-y-3">
-                <Button variant="outline" className="bg-transparent text-orange-500 border-orange-500 hover:text-white hover:bg-orange-500" asChild>
-                  <Link href="/sign-up">Sign Up</Link>
-                </Button>
-                <Button asChild>
-                  <Link href="/sign-in">Sign In</Link>
-                </Button>
-              </div>
-            </nav>
-          </SheetContent>
-        </Sheet>
+        <div className="md:hidden">
+          <ThemeToggle />
+          <Sheet>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>Navigation</SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col space-y-4 px-4">
+                {routes.map((route) => (
+                  <Link key={route.href} href={route.href} className={cn("text-sm font-medium transition-colors hover:text-orange-500", pathname === route.href ? "text-orange-500" : "text-muted-foreground")}>
+                    {route.label}
+                  </Link>
+                ))}
+                <div className="pt-4 flex flex-col space-y-3">
+                  <Button variant="outline" className="bg-transparent text-orange-500 border-orange-500 hover:text-white hover:bg-orange-500" asChild>
+                    <Link href="/sign-up">Sign Up</Link>
+                  </Button>
+                  <Button asChild>
+                    <Link href="/sign-in">Sign In</Link>
+                  </Button>
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

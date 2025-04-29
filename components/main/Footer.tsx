@@ -7,7 +7,7 @@ import { ChevronRight } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-950 text-white">
+    <footer className="bg-secondary-background text-white">
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-between">
           <div className="col-span-1 lg:col-span-1 justify-self-start">
@@ -33,29 +33,29 @@ const Footer = () => {
           </div>
 
           <div className="col-span-1 justify-self-start md:justify-self-center">
-            <h4 className="font-medium mb-4 text-lg border-b border-gray-700 text-white pb-2">Quick Links</h4>
+            <h4 className="font-medium mb-4 border-b border-gray-700 text-white pb-2">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/about-us" className="text-gray-300 hover:text-orange-500 transition-colors flex">
-                  <ChevronRight />
+                <Link href="/about-us" className="text-gray-300 hover:text-orange-500 transition-colors flex items-center space-x-2">
+                  <ChevronRight size={20} />
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-300 hover:text-orange-500 transition-colors flex">
-                  <ChevronRight />
+                <Link href="/services" className="text-gray-300 hover:text-orange-500 transition-colors flex items-center space-x-2">
+                  <ChevronRight size={20} />
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="text-gray-300 hover:text-orange-500 transition-colors flex">
-                  <ChevronRight />
+                <Link href="/privacy-policy" className="text-gray-300 hover:text-orange-500 transition-colors flex items-center space-x-2">
+                  <ChevronRight size={20} />
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="text-gray-300 hover:text-orange-500 transition-colors flex">
-                  <ChevronRight />
+                <Link href="/terms-of-service" className="text-gray-300 hover:text-orange-500 transition-colors flex items-center space-x-2">
+                  <ChevronRight size={20} />
                   Terms of Service
                 </Link>
               </li>
@@ -74,7 +74,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-10 pt-6 text-center">
-          <p className="text-sm text-gray-400">© 2025 Nutrify. All rights reserved.</p>
+          <p className="text-sm text-gray-400">© 2025 Nutrify. All rights reserved. Develop by Capstone Team CC25-CF083</p>
         </div>
       </div>
     </footer>

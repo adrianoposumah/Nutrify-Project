@@ -12,6 +12,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-secondary-background: var(--secondary-background);
   --font-poppins: var(--font-poppins);
   --font-worksans: var(--font-work-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -52,6 +53,7 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
+  --secondary-background: #1a143c;
   /* --foreground: oklch(0.145 0 0); */
   --foreground: #1a143c;
   --card: oklch(1 0 0);
@@ -88,17 +90,19 @@
 
 .dark {
   --background: oklch(0.145 0 0);
+  --secondary-background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  /* --primary: oklch(0.922 0 0); */
+  --primary: #fe6301;
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.908 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
@@ -141,13 +145,12 @@
     @apply font-poppins text-blue-950;
   }
   p,
-  span,
   a,
   li {
-    @apply font-worksans;
+    @apply font-worksans text-sm md:text-lg;
   }
 
   section {
-    @apply mt-5;
+    @apply mt-2;
   }
 }
