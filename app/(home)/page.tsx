@@ -1,7 +1,10 @@
 import { Metadata } from "next";
-import Image from "next/image";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+
+import RecommendationFood from "@/components/features/RecommendationFood";
+import BackgroundProvider from "@/components/features/BackgroundProvider";
 
 export const metadata: Metadata = {
   title: "Home | Nutrify",
@@ -12,7 +15,7 @@ export default function Home() {
   return (
     <div>
       <section className="relative w-full h-[500] lg:h-screen mt-0">
-        <Image src="/Background1.png" alt="Jumbotron" fill className="object-cover object-center" priority />
+        <BackgroundProvider />
         <div className="absolute inset-0 flex flex-col justify-center">
           <div className="container mx-auto px-4">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold ">
@@ -34,7 +37,7 @@ export default function Home() {
       </section>
       <main>
         {/* About Us */}
-        <section className="container mx-auto px-4 py-20 text-center">
+        <section className="container mx-auto px-4 py-10 lg:py-20 text-center">
           <h1>
             Tentang <span className="text-orange-500">Nutrify</span>
           </h1>
@@ -43,6 +46,8 @@ export default function Home() {
             aperiam. Consectetur architecto, aperiam nihil illo hic voluptatem? Ducimus ut numquam nihil cum.
           </p>
         </section>
+        {/* Recommendation */}
+        <RecommendationFood />
       </main>
     </div>
   );

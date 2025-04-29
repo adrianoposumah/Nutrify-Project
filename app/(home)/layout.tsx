@@ -1,5 +1,7 @@
 import { Poppins, Work_Sans } from "next/font/google";
 import "../globals.css";
+import { ThemeProvider } from "next-themes";
+
 import Navbar from "@/components/main/Navbar";
 import Footer from "@/components/main/Footer";
 
@@ -20,11 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} ${workSans.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider attribute="class" enableSystem>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
