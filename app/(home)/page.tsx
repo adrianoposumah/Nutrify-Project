@@ -12,10 +12,7 @@ export default function Home() {
   return (
     <div>
       <section className="relative w-full h-[500] lg:h-screen mt-0">
-        {/* Jumbotron */}
-
         <Image src="/Background1.png" alt="Jumbotron" fill className="object-cover object-center" priority />
-        {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
         <div className="absolute inset-0 flex flex-col justify-center">
           <div className="container mx-auto px-4">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold ">
