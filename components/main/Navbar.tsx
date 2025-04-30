@@ -71,7 +71,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-          <Button variant="outline" className="bg-transparent text-orange-500 border-orange-500 hover:text-white hover:bg-orange-500" asChild>
+          <Button variant="outline" className="bg-transparent " asChild>
             <Link href="/sign-up">Sign Up</Link>
           </Button>
           <Button asChild>
