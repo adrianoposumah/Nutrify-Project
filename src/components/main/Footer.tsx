@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ChevronRight } from "lucide-react";
+
+import { Button, Input } from "@/components";
 
 const Footer = () => {
   return (
@@ -36,7 +36,7 @@ const Footer = () => {
             <h4 className="font-medium mb-4 border-b border-gray-700 text-white pb-2">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/about-us" className="text-gray-300 hover:text-orange-500 transition-colors flex items-center space-x-2">
+                <Link href="/aboutus" className="text-gray-300 hover:text-orange-500 transition-colors flex items-center space-x-2">
                   <ChevronRight size={20} />
                   About Us
                 </Link>

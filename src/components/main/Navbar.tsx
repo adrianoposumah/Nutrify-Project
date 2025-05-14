@@ -1,16 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-/** @jsxImportSource react */
 import Link from "next/link";
 import Image from "next/image";
-
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-
-import ThemeToggle from "../ui/ThemeToggle";
 import { Menu } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { Button, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, ThemeToggle } from "@/components";
 
 const routes = [
   {
@@ -30,7 +26,7 @@ const routes = [
     label: "API",
   },
   {
-    href: "/about-us",
+    href: "/aboutus",
     label: "About",
   },
 ];
@@ -72,10 +68,10 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
           <Button variant="outline" className="bg-transparent " asChild>
-            <Link href="/sign-up">Sign Up</Link>
+            <Link href="/signup">Sign Up</Link>
           </Button>
           <Button asChild>
-            <Link href="/sign-in">Sign In</Link>
+            <Link href="/signin">Sign In</Link>
           </Button>
         </div>
         <div className="md:hidden">
@@ -99,10 +95,10 @@ const Navbar = () => {
                 ))}
                 <div className="pt-4 flex flex-col space-y-3">
                   <Button variant="outline" className="bg-transparent text-orange-500 border-orange-500 hover:text-white hover:bg-orange-500" asChild>
-                    <Link href="/sign-up">Sign Up</Link>
+                    <Link href="/signup">Sign Up</Link>
                   </Button>
                   <Button asChild>
-                    <Link href="/sign-in">Sign In</Link>
+                    <Link href="/signin">Sign In</Link>
                   </Button>
                 </div>
               </nav>

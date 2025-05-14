@@ -40,7 +40,7 @@ export default function SignIn() {
           <div className="flex flex-col justify-between items-center w-full">
             <p className="text-sm text-gray-500 self-end">Belum punya Akun?</p>
             <Button variant="outline" asChild>
-              <Link href="sign-up" className="w-full">
+              <Link href="signup" className="w-full">
                 Sign Up
               </Link>
             </Button>

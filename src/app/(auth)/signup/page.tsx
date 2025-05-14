@@ -48,7 +48,7 @@ export default function SignUp() {
           <div className="flex flex-col justify-between items-center w-full">
             <p className="text-sm text-gray-500 self-end">Punya Akun?</p>
             <Button variant="outline" asChild>
-              <Link href="sign-in" className="w-full">
+              <Link href="signin" className="w-full">
                 Sign In
               </Link>
             </Button>

@@ -1,9 +1,8 @@
 import { Poppins, Work_Sans } from "next/font/google";
-import "../globals.css";
 import { ThemeProvider } from "next-themes";
 
-import Navbar from "@/components/main/Navbar";
-import Footer from "@/components/main/Footer";
+import "../globals.css";
+import { Navbar, Footer } from "@/components";
 
 const poppins = Poppins({
   variable: "--font-poppins",
