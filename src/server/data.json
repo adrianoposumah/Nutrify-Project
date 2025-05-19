@@ -1,0 +1,1519 @@
+{
+  "food": [
+    {
+      "id": 1,
+      "name": "Rendang",
+      "nation": "Indonesia",
+      "image": "/rendang.jpg",
+      "description": "Rendang is a rich and tender coconut beef stew which is explosively flavorful and famous throughout Indonesia. Simmered in coconut milk and spices until the liquid evaporates, this dish is intensely flavorful with complex layers of taste from the various spices used in its preparation.",
+      "ingredients": [
+        { "name": "Lean beef", "amount": "1 kg" },
+        { "name": "Coconut milk", "amount": "1 liter" },
+        { "name": "Red chili", "amount": "250 gram" },
+        { "name": "Shallots", "amount": "200 gram" },
+        { "name": "Garlic", "amount": "100 gram" },
+        { "name": "Lemongrass", "amount": "4 stalks" },
+        { "name": "Galangal", "amount": "4 cm" },
+        { "name": "Ginger", "amount": "4 cm" },
+        { "name": "Turmeric", "amount": "3 cm" },
+        { "name": "Kaffir lime leaves", "amount": "10 pieces" },
+        { "name": "Turmeric leaves", "amount": "2 pieces" },
+        { "name": "Asam kandis", "amount": "2 pieces" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 195,
+        "fat": 11.07,
+        "carbohydrate": 4.49,
+        "sugar": 1.31,
+        "protein": 19.68,
+        "fiber": 1.7,
+        "cholesterol": 29,
+        "sodium": 184,
+        "water": 9.0,
+        "vitamins": {
+          "vitamin_A": 0.2,
+          "vitamin_B1": 0.05,
+          "vitamin_B2": 0.1,
+          "vitamin_B3": 4.5,
+          "vitamin_B5": 0.9,
+          "vitamin_B6": 0.4,
+          "vitamin_B9": 10,
+          "vitamin_B12": 1.5,
+          "vitamin_C": 0,
+          "vitamin_D": 0,
+          "vitamin_E": 0.2,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 474,
+          "iron": 14.9,
+          "magnesium": 25,
+          "phosphorus": 211,
+          "potassium": 373,
+          "zinc": 5.5
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "High Cholesterol",
+          "warning": "CAUTION",
+          "note": "The high content of saturated fat and cholesterol can increase the risk of heart disease if consumed excessively."
+        },
+        {
+          "disease": "Hypertension",
+          "warning": "Moderate Consumption",
+          "note": "The relatively high sodium content can contribute to high blood pressure if not controlled."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Hamburger",
+      "nation": "USA",
+      "image": "/hamburger.jpg",
+      "description": "Hamburger is a sandwich consisting of a cooked patty of ground meat placed inside a sliced bread roll or bun.",
+      "origin": "USA",
+      "ingredients": [
+        { "name": "Ground beef", "amount": "150 gram" },
+        { "name": "Hamburger bun", "amount": "1 piece" },
+        { "name": "Lettuce", "amount": "20 gram" },
+        { "name": "Tomato", "amount": "30 gram" },
+        { "name": "Onion", "amount": "20 gram" },
+        { "name": "Cheese", "amount": "20 gram" },
+        { "name": "Ketchup", "amount": "1 tablespoon" },
+        { "name": "Mustard", "amount": "1 teaspoon" },
+        { "name": "Salt and pepper", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 250,
+        "fat": 12,
+        "carbohydrate": 20,
+        "sugar": 4,
+        "protein": 15,
+        "fiber": 1.5,
+        "cholesterol": 40,
+        "sodium": 380,
+        "water": 50,
+        "vitamins": {
+          "vitamin_A": 0.2,
+          "vitamin_B1": 0.15,
+          "vitamin_B2": 0.18,
+          "vitamin_B3": 4.0,
+          "vitamin_B5": 0.7,
+          "vitamin_B6": 0.3,
+          "vitamin_B9": 25,
+          "vitamin_B12": 2.0,
+          "vitamin_C": 2,
+          "vitamin_D": 0.1,
+          "vitamin_E": 0.4,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 60,
+          "iron": 2.5,
+          "magnesium": 25,
+          "phosphorus": 120,
+          "potassium": 250,
+          "zinc": 3.0
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Heart Disease",
+          "warning": "CAUTION",
+          "note": "High in saturated fat and sodium, which may contribute to cardiovascular issues if consumed regularly."
+        },
+        {
+          "disease": "Obesity",
+          "warning": "CAUTION",
+          "note": "High caloric density may contribute to weight gain if consumed frequently."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pizza",
+      "nation": "Italy",
+      "image": "/pizza.jpg",
+      "description": "Pizza is a savory dish consisting of a round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and various other ingredients.",
+      "origin": "Italy",
+      "ingredients": [
+        { "name": "Pizza dough", "amount": "200 gram" },
+        { "name": "Tomato sauce", "amount": "80 gram" },
+        { "name": "Mozzarella cheese", "amount": "100 gram" },
+        { "name": "Basil", "amount": "5 leaves" },
+        { "name": "Olive oil", "amount": "1 tablespoon" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 270,
+        "fat": 10,
+        "carbohydrate": 33,
+        "sugar": 3.5,
+        "protein": 12,
+        "fiber": 2.3,
+        "cholesterol": 18,
+        "sodium": 600,
+        "water": 40,
+        "vitamins": {
+          "vitamin_A": 0.4,
+          "vitamin_B1": 0.3,
+          "vitamin_B2": 0.25,
+          "vitamin_B3": 3.0,
+          "vitamin_B5": 0.5,
+          "vitamin_B6": 0.1,
+          "vitamin_B9": 35,
+          "vitamin_B12": 0.5,
+          "vitamin_C": 5,
+          "vitamin_D": 0.1,
+          "vitamin_E": 0.8,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 180,
+          "iron": 1.8,
+          "magnesium": 25,
+          "phosphorus": 200,
+          "potassium": 180,
+          "zinc": 1.5
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Hypertension",
+          "warning": "CAUTION",
+          "note": "High sodium content, particularly from cheese and tomato sauce, may impact blood pressure."
+        },
+        {
+          "disease": "Lactose Intolerance",
+          "warning": "HIGH RISK",
+          "note": "Contains cheese which is high in lactose. Consider dairy-free alternatives if intolerant."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Pisang Goreng",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Pisang Goreng is a popular Indonesian snack made of banana coated in batter and deep fried until golden and crispy.",
+      "origin": "Indonesia",
+      "ingredients": [
+        { "name": "Ripe banana", "amount": "4 pieces" },
+        { "name": "Flour", "amount": "100 gram" },
+        { "name": "Rice flour", "amount": "2 tablespoons" },
+        { "name": "Sugar", "amount": "2 tablespoons" },
+        { "name": "Salt", "amount": "1/4 teaspoon" },
+        { "name": "Vanilla extract", "amount": "1/2 teaspoon" },
+        { "name": "Water", "amount": "150 ml" },
+        { "name": "Cooking oil", "amount": "500 ml" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 220,
+        "fat": 8,
+        "carbohydrate": 35,
+        "sugar": 18,
+        "protein": 2,
+        "fiber": 2,
+        "cholesterol": 0,
+        "sodium": 60,
+        "water": 52,
+        "vitamins": {
+          "vitamin_A": 0.05,
+          "vitamin_B1": 0.04,
+          "vitamin_B2": 0.05,
+          "vitamin_B3": 0.7,
+          "vitamin_B5": 0.25,
+          "vitamin_B6": 0.4,
+          "vitamin_B9": 20,
+          "vitamin_B12": 0,
+          "vitamin_C": 8,
+          "vitamin_D": 0,
+          "vitamin_E": 0.2,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 15,
+          "iron": 0.6,
+          "magnesium": 30,
+          "phosphorus": 25,
+          "potassium": 350,
+          "zinc": 0.2
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Diabetes",
+          "warning": "CAUTION",
+          "note": "High in carbohydrates and sugar, may cause spikes in blood sugar levels."
+        },
+        {
+          "disease": "Heart Health",
+          "warning": "Moderate Consumption",
+          "note": "Deep-fried food, high in oil content that may affect cardiovascular health if consumed excessively."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Sop Konro",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Sop Konro is a Makassar-style beef rib soup cooked with various spices like cinnamon, kluwek, tamarind, and coriander. The soup has a dark color and rich flavor.",
+      "origin": "Makassar, South Sulawesi",
+      "ingredients": [
+        { "name": "Beef ribs", "amount": "1.2 kg" },
+        { "name": "Water", "amount": "2.5 liter" },
+        { "name": "Roasted candlenuts", "amount": "4 pieces" },
+        { "name": "Roasted nutmeg", "amount": "1.5 cm" },
+        { "name": "Roasted black pepper", "amount": "1 tbsp" },
+        { "name": "Roasted coriander", "amount": "1.5 tbsp" },
+        { "name": "Roasted cumin", "amount": "1 tbsp" },
+        { "name": "Shallots", "amount": "12 cloves" },
+        { "name": "Garlic", "amount": "7 cloves" },
+        { "name": "Ginger", "amount": "3 cm" },
+        { "name": "Galangal", "amount": "4 cm" },
+        { "name": "Lemongrass", "amount": "2 stalks" },
+        { "name": "Kluwek", "amount": "4 pieces" },
+        { "name": "Roasted grated coconut", "amount": "200 gram" },
+        { "name": "Cinnamon", "amount": "6 cm" },
+        { "name": "Bay leaves", "amount": "4 pieces" },
+        { "name": "Tamarind", "amount": "1 tsp" },
+        { "name": "Salt", "amount": "1 tbsp" },
+        { "name": "Palm sugar", "amount": "25 gram" },
+        { "name": "Stock powder", "amount": "0.5 tbsp" },
+        { "name": "Cooking oil", "amount": "to taste" },
+        { "name": "Red chili sambal", "amount": "to taste" },
+        { "name": "Lime", "amount": "to taste" },
+        { "name": "Fried shallots", "amount": "to taste" },
+        { "name": "Green onion", "amount": "to taste" },
+        { "name": "Celery", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 71,
+        "fat": 2.6,
+        "carbohydrate": 4.5,
+        "sugar": 0,
+        "protein": 7.4,
+        "fiber": 0,
+        "cholesterol": 0,
+        "sodium": 184,
+        "water": 85,
+        "vitamins": {
+          "vitamin_A": 0,
+          "vitamin_B1": 0.12,
+          "vitamin_B2": 0.02,
+          "vitamin_B3": 10.9,
+          "vitamin_B5": 0,
+          "vitamin_B6": 0,
+          "vitamin_B9": 0,
+          "vitamin_B12": 0,
+          "vitamin_C": 0,
+          "vitamin_D": 0,
+          "vitamin_E": 0,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 17,
+          "iron": 4.6,
+          "magnesium": 0,
+          "phosphorus": 60,
+          "potassium": 25,
+          "zinc": 1.3
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Hypertension",
+          "warning": "CAUTION",
+          "note": "The sodium content is quite high, excessive consumption can trigger high blood pressure."
+        },
+        {
+          "disease": "High Cholesterol",
+          "warning": "Moderate Consumption",
+          "note": "Beef ribs contain saturated fat, limit consumption for those with high cholesterol."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Ayam Geprek",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Ayam geprek is a crispy fried chicken dish that is crushed and mixed with spicy chili sauce, popular as fast food in Indonesia.",
+      "origin": "Yogyakarta",
+      "ingredients": [
+        { "name": "Skinless chicken breast", "amount": "100 gram" },
+        { "name": "Flour", "amount": "50 gram" },
+        { "name": "Cooking oil", "amount": "to taste" },
+        { "name": "Red chili", "amount": "10 pieces" },
+        { "name": "Garlic", "amount": "3 cloves" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 263,
+        "fat": 17.99,
+        "carbohydrate": 7.6,
+        "sugar": 0.78,
+        "protein": 17.61,
+        "fiber": 0.8,
+        "cholesterol": 139,
+        "sodium": 460,
+        "water": 50.0,
+        "vitamins": {
+          "vitamin_A": 0.1,
+          "vitamin_B1": 0.05,
+          "vitamin_B2": 0.1,
+          "vitamin_B3": 5.0,
+          "vitamin_B5": 1.0,
+          "vitamin_B6": 0.5,
+          "vitamin_B9": 10,
+          "vitamin_B12": 0.3,
+          "vitamin_C": 2.0,
+          "vitamin_D": 0.0,
+          "vitamin_E": 0.2,
+          "vitamin_K": 0.0
+        },
+        "minerals": {
+          "calcium": 20,
+          "iron": 1.0,
+          "magnesium": 25,
+          "phosphorus": 200,
+          "potassium": 216,
+          "zinc": 1.5
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "High Cholesterol",
+          "warning": "CAUTION",
+          "note": "The high content of saturated fat and cholesterol can increase the risk of heart disease if consumed excessively."
+        },
+        {
+          "disease": "Hypertension",
+          "warning": "Moderate Consumption",
+          "note": "The high sodium content can contribute to high blood pressure if not controlled."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Roti Bakar",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Roti bakar is toasted bread usually served with various toppings such as butter, jam, cheese, or chocolate.",
+      "origin": "-",
+      "ingredients": [
+        { "name": "White bread", "amount": "2 slices" },
+        { "name": "Butter", "amount": "1 tablespoon" },
+        { "name": "Chocolate spread", "amount": "1 tablespoon" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 313,
+        "fat": 4.0,
+        "carbohydrate": 54.4,
+        "sugar": 10.0,
+        "protein": 9.0,
+        "fiber": 1.0,
+        "cholesterol": 0,
+        "sodium": 145,
+        "water": 30.0,
+        "vitamins": {
+          "vitamin_A": 0.0,
+          "vitamin_B1": 0.1,
+          "vitamin_B2": 0.1,
+          "vitamin_B3": 1.5,
+          "vitamin_B5": 0.5,
+          "vitamin_B6": 0.1,
+          "vitamin_B9": 20,
+          "vitamin_B12": 0.0,
+          "vitamin_C": 0.0,
+          "vitamin_D": 0.0,
+          "vitamin_E": 0.1,
+          "vitamin_K": 0.0
+        },
+        "minerals": {
+          "calcium": 50,
+          "iron": 1.5,
+          "magnesium": 20,
+          "phosphorus": 100,
+          "potassium": 51,
+          "zinc": 0.5
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Diabetes",
+          "warning": "Moderate Consumption",
+          "note": "High carbohydrate and sugar content may elevate blood sugar levels."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Kopi Susu",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Kopi susu is a beverage consisting of a mixture of coffee and milk, often with added sugar for sweetness.",
+      "origin": "-",
+      "ingredients": [
+        { "name": "Coffee powder", "amount": "1 teaspoon" },
+        { "name": "Condensed milk", "amount": "2 tablespoons" },
+        { "name": "Hot water", "amount": "200 ml" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 17,
+        "fat": 0.14,
+        "carbohydrate": 7.14,
+        "sugar": 6.0,
+        "protein": 0.31,
+        "fiber": 0.0,
+        "cholesterol": 0,
+        "sodium": 4,
+        "water": 92.0,
+        "vitamins": {
+          "vitamin_A": 0.0,
+          "vitamin_B1": 0.0,
+          "vitamin_B2": 0.0,
+          "vitamin_B3": 0.0,
+          "vitamin_B5": 0.0,
+          "vitamin_B6": 0.0,
+          "vitamin_B9": 0.0,
+          "vitamin_B12": 0.0,
+          "vitamin_C": 0.0,
+          "vitamin_D": 0.0,
+          "vitamin_E": 0.0,
+          "vitamin_K": 0.0
+        },
+        "minerals": {
+          "calcium": 10,
+          "iron": 0.1,
+          "magnesium": 5,
+          "phosphorus": 20,
+          "potassium": 35,
+          "zinc": 0.1
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Diabetes",
+          "warning": "CAUTION",
+          "note": "High sugar content from condensed milk can affect blood sugar levels."
+        },
+        {
+          "disease": "Insomnia",
+          "warning": "Moderate Consumption",
+          "note": "Caffeine can disturb sleep patterns if consumed close to bedtime."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Papeda",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Papeda is a staple food from Papua and Maluku in the form of sago porridge with a chewy, sticky texture and a clear white color.",
+      "origin": "Papua, Maluku",
+      "ingredients": [
+        { "name": "Sago flour", "amount": "250 gram" },
+        { "name": "Water", "amount": "1 liter" },
+        { "name": "Salt", "amount": "to taste" },
+        { "name": "Garlic (optional)", "amount": "2 cloves" },
+        { "name": "Chicken broth (optional)", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 61,
+        "fat": 0.2,
+        "carbohydrate": 14.9,
+        "sugar": 0,
+        "protein": 0.3,
+        "fiber": 0.5,
+        "cholesterol": 0,
+        "sodium": 1,
+        "water": 84,
+        "vitamins": {
+          "vitamin_A": 0,
+          "vitamin_B1": 0.01,
+          "vitamin_B2": 0,
+          "vitamin_B3": 0,
+          "vitamin_B5": 0,
+          "vitamin_B6": 0,
+          "vitamin_B9": 0,
+          "vitamin_B12": 0,
+          "vitamin_C": 0,
+          "vitamin_D": 0,
+          "vitamin_E": 0,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 27,
+          "iron": 0.6,
+          "magnesium": 10,
+          "phosphorus": 13,
+          "potassium": 10,
+          "zinc": 0.1
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Diabetes",
+          "warning": "Safe",
+          "note": "Papeda has a low glycemic index, making it relatively safe for diabetes patients when consumed in moderate portions."
+        },
+        {
+          "disease": "Heart Disease",
+          "warning": "Safe",
+          "note": "Papeda is low in fat and contains no cholesterol."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Pempek",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Pempek is a Palembang specialty made from fish and sago flour, served with a sour and spicy cuko sauce.",
+      "origin": "Palembang, South Sumatra",
+      "ingredients": [
+        { "name": "Mackerel fish", "amount": "500 gram" },
+        { "name": "Sago flour", "amount": "500 gram" },
+        { "name": "Water", "amount": "200 ml" },
+        { "name": "Eggs", "amount": "2 pieces" },
+        { "name": "Garlic", "amount": "4 cloves" },
+        { "name": "Salt", "amount": "to taste" },
+        { "name": "Cuko sauce (palm sugar, tamarind, chili, garlic)", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 165,
+        "fat": 2.5,
+        "carbohydrate": 31,
+        "sugar": 2,
+        "protein": 8,
+        "fiber": 1,
+        "cholesterol": 35,
+        "sodium": 300,
+        "water": 55,
+        "vitamins": {
+          "vitamin_A": 0.05,
+          "vitamin_B1": 0.08,
+          "vitamin_B2": 0.09,
+          "vitamin_B3": 1.2,
+          "vitamin_B5": 0.4,
+          "vitamin_B6": 0.2,
+          "vitamin_B9": 8,
+          "vitamin_B12": 0.8,
+          "vitamin_C": 0,
+          "vitamin_D": 0,
+          "vitamin_E": 0.1,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 30,
+          "iron": 1.2,
+          "magnesium": 15,
+          "phosphorus": 90,
+          "potassium": 120,
+          "zinc": 0.8
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Hypertension",
+          "warning": "Moderate Consumption",
+          "note": "The sodium content is quite high, which could affect blood pressure if consumed excessively."
+        },
+        {
+          "disease": "Diabetes",
+          "warning": "Moderate Consumption",
+          "note": "The carbohydrate content and cuko sauce's sugar content should be considered for diabetics."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Gudeg",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Gudeg is a traditional dish from Yogyakarta made with young jackfruit cooked in coconut milk and palm sugar, resulting in a sweet and savory flavor.",
+      "origin": "Yogyakarta",
+      "ingredients": [
+        { "name": "Young jackfruit", "amount": "1 kg" },
+        { "name": "Coconut milk", "amount": "1 liter" },
+        { "name": "Palm sugar", "amount": "200 gram" },
+        { "name": "Shallots", "amount": "10 cloves" },
+        { "name": "Garlic", "amount": "5 cloves" },
+        { "name": "Bay leaves", "amount": "5 pieces" },
+        { "name": "Galangal", "amount": "5 cm" },
+        { "name": "Boiled eggs", "amount": "4 pieces" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 140,
+        "fat": 6.5,
+        "carbohydrate": 20,
+        "sugar": 8,
+        "protein": 2.5,
+        "fiber": 2,
+        "cholesterol": 30,
+        "sodium": 150,
+        "water": 65,
+        "vitamins": {
+          "vitamin_A": 0.1,
+          "vitamin_B1": 0.05,
+          "vitamin_B2": 0.02,
+          "vitamin_B3": 0.8,
+          "vitamin_B5": 0.3,
+          "vitamin_B6": 0.1,
+          "vitamin_B9": 5,
+          "vitamin_B12": 0.1,
+          "vitamin_C": 5,
+          "vitamin_D": 0,
+          "vitamin_E": 0.1,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 40,
+          "iron": 1.0,
+          "magnesium": 15,
+          "phosphorus": 60,
+          "potassium": 240,
+          "zinc": 0.4
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Diabetes",
+          "warning": "Moderate Consumption",
+          "note": "Contains high sugar from palm sugar, which may affect blood glucose levels."
+        },
+        {
+          "disease": "Hypertension",
+          "warning": "Moderate Consumption",
+          "note": "The sodium and fat content from coconut milk could be a concern for those with high blood pressure."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Rawon",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Rawon is a black beef soup from East Java, using kluwek as a coloring agent and flavor enhancer.",
+      "origin": "East Java",
+      "ingredients": [
+        { "name": "Beef", "amount": "500 gram" },
+        { "name": "Kluwek", "amount": "5 pieces" },
+        { "name": "Shallots", "amount": "8 cloves" },
+        { "name": "Garlic", "amount": "4 cloves" },
+        { "name": "Lemongrass", "amount": "2 stalks" },
+        { "name": "Galangal", "amount": "3 cm" },
+        { "name": "Kaffir lime leaves", "amount": "5 pieces" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 110,
+        "fat": 4,
+        "carbohydrate": 3,
+        "sugar": 0.5,
+        "protein": 15,
+        "fiber": 1,
+        "cholesterol": 28,
+        "sodium": 180,
+        "water": 75,
+        "vitamins": {
+          "vitamin_A": 0.05,
+          "vitamin_B1": 0.04,
+          "vitamin_B2": 0.08,
+          "vitamin_B3": 2.5,
+          "vitamin_B5": 0.5,
+          "vitamin_B6": 0.2,
+          "vitamin_B9": 5,
+          "vitamin_B12": 1.0,
+          "vitamin_C": 0.5,
+          "vitamin_D": 0,
+          "vitamin_E": 0.1,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 15,
+          "iron": 1.8,
+          "magnesium": 20,
+          "phosphorus": 120,
+          "potassium": 200,
+          "zinc": 2.5
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Hypertension",
+          "warning": "Moderate Consumption",
+          "note": "The sodium content may contribute to high blood pressure if consumed excessively."
+        },
+        {
+          "disease": "High Cholesterol",
+          "warning": "Moderate Consumption",
+          "note": "Contains beef which has saturated fats that can affect cholesterol levels."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Ayam Betutu",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Ayam Betutu is a whole chicken seasoned with Balinese spices, wrapped in banana leaves, then grilled or steamed until tender.",
+      "origin": "Bali",
+      "ingredients": [
+        { "name": "Whole chicken", "amount": "1 piece" },
+        { "name": "Shallots", "amount": "10 cloves" },
+        { "name": "Garlic", "amount": "6 cloves" },
+        { "name": "Red chili", "amount": "8 pieces" },
+        { "name": "Lemongrass", "amount": "2 stalks" },
+        { "name": "Bay leaves", "amount": "4 pieces" },
+        { "name": "Turmeric", "amount": "4 cm" },
+        { "name": "Ginger", "amount": "3 cm" },
+        { "name": "Banana leaves", "amount": "to taste" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 150,
+        "fat": 7,
+        "carbohydrate": 2,
+        "sugar": 0.5,
+        "protein": 20,
+        "fiber": 1,
+        "cholesterol": 65,
+        "sodium": 170,
+        "water": 68,
+        "vitamins": {
+          "vitamin_A": 0.1,
+          "vitamin_B1": 0.08,
+          "vitamin_B2": 0.15,
+          "vitamin_B3": 6.8,
+          "vitamin_B5": 1.2,
+          "vitamin_B6": 0.4,
+          "vitamin_B9": 7,
+          "vitamin_B12": 0.3,
+          "vitamin_C": 3.5,
+          "vitamin_D": 0.2,
+          "vitamin_E": 0.3,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 15,
+          "iron": 1.2,
+          "magnesium": 25,
+          "phosphorus": 180,
+          "potassium": 220,
+          "zinc": 1.3
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "High Cholesterol",
+          "warning": "Moderate Consumption",
+          "note": "Contains cholesterol from chicken, but less than red meat. Remove skin to reduce fat content."
+        },
+        {
+          "disease": "Hypertension",
+          "warning": "Moderate Consumption",
+          "note": "The sodium from salt and spices may affect blood pressure if consumed in excess."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Lawar",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Lawar is a mixture of chopped meat, vegetables, grated coconut, and Balinese spices, often served as a side dish.",
+      "origin": "Bali",
+      "ingredients": [
+        { "name": "Pork/chicken meat", "amount": "250 gram" },
+        { "name": "Grated coconut", "amount": "100 gram" },
+        { "name": "Long beans", "amount": "100 gram" },
+        { "name": "Shallots", "amount": "6 cloves" },
+        { "name": "Garlic", "amount": "3 cloves" },
+        { "name": "Red chili", "amount": "5 pieces" },
+        { "name": "Lemongrass", "amount": "1 stalk" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 180,
+        "fat": 11,
+        "carbohydrate": 5,
+        "sugar": 1,
+        "protein": 13,
+        "fiber": 2,
+        "cholesterol": 38,
+        "sodium": 150,
+        "water": 68,
+        "vitamins": {
+          "vitamin_A": 0.2,
+          "vitamin_B1": 0.3,
+          "vitamin_B2": 0.1,
+          "vitamin_B3": 3.0,
+          "vitamin_B5": 0.5,
+          "vitamin_B6": 0.2,
+          "vitamin_B9": 15,
+          "vitamin_B12": 0.4,
+          "vitamin_C": 5,
+          "vitamin_D": 0,
+          "vitamin_E": 0.5,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 25,
+          "iron": 1.5,
+          "magnesium": 30,
+          "phosphorus": 110,
+          "potassium": 250,
+          "zinc": 1.2
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "High Cholesterol",
+          "warning": "Moderate Consumption",
+          "note": "Contains animal fats and coconut which are high in saturated fat. Choose chicken over pork for lower fat content."
+        },
+        {
+          "disease": "Digestive Issues",
+          "warning": "CAUTION",
+          "note": "The combination of meat, coconut, and vegetables may be heavy for sensitive digestive systems."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Gado-Gado",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Gado-Gado is an Indonesian boiled vegetable salad served with peanut sauce, eggs, and crackers.",
+      "origin": "Jakarta",
+      "ingredients": [
+        { "name": "Long beans", "amount": "100 gram" },
+        { "name": "Bean sprouts", "amount": "100 gram" },
+        { "name": "Carrot", "amount": "100 gram" },
+        { "name": "Potato", "amount": "100 gram" },
+        { "name": "Boiled eggs", "amount": "2 pieces" },
+        { "name": "Tofu", "amount": "100 gram" },
+        { "name": "Tempeh", "amount": "100 gram" },
+        { "name": "Peanut sauce", "amount": "100 gram" },
+        { "name": "Crackers", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 120,
+        "fat": 6,
+        "carbohydrate": 12,
+        "sugar": 3,
+        "protein": 5,
+        "fiber": 2,
+        "cholesterol": 25,
+        "sodium": 110,
+        "water": 70,
+        "vitamins": {
+          "vitamin_A": 0.8,
+          "vitamin_B1": 0.1,
+          "vitamin_B2": 0.12,
+          "vitamin_B3": 1.0,
+          "vitamin_B5": 0.4,
+          "vitamin_B6": 0.2,
+          "vitamin_B9": 30,
+          "vitamin_B12": 0.2,
+          "vitamin_C": 15,
+          "vitamin_D": 0.1,
+          "vitamin_E": 1.0,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 50,
+          "iron": 1.8,
+          "magnesium": 40,
+          "phosphorus": 100,
+          "potassium": 300,
+          "zinc": 0.8
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Peanut Allergy",
+          "warning": "HIGH RISK",
+          "note": "Contains peanuts as a main ingredient in the sauce. Avoid completely if allergic."
+        },
+        {
+          "disease": "Heart Health",
+          "warning": "Beneficial",
+          "note": "High in plant-based proteins and vegetables, with good fats from peanuts. Excellent for heart health."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Nasi Tutug Oncom",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Nasi Tutug Oncom is rice mixed with fried fermented soybean cake and spices, resulting in a savory taste and distinctive aroma.",
+      "origin": "Tasikmalaya, West Java",
+      "ingredients": [
+        { "name": "White rice", "amount": "500 gram" },
+        { "name": "Oncom (fermented soybean cake)", "amount": "200 gram" },
+        { "name": "Shallots", "amount": "5 cloves" },
+        { "name": "Garlic", "amount": "3 cloves" },
+        { "name": "Red chili", "amount": "3 pieces" },
+        { "name": "Kencur (aromatic ginger)", "amount": "2 cm" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 160,
+        "fat": 4,
+        "carbohydrate": 28,
+        "sugar": 1.5,
+        "protein": 4,
+        "fiber": 1,
+        "cholesterol": 0,
+        "sodium": 90,
+        "water": 65,
+        "vitamins": {
+          "vitamin_A": 0.1,
+          "vitamin_B1": 0.15,
+          "vitamin_B2": 0.05,
+          "vitamin_B3": 2.0,
+          "vitamin_B5": 0.5,
+          "vitamin_B6": 0.1,
+          "vitamin_B9": 12,
+          "vitamin_B12": 0,
+          "vitamin_C": 3,
+          "vitamin_D": 0,
+          "vitamin_E": 0.2,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 15,
+          "iron": 1.0,
+          "magnesium": 20,
+          "phosphorus": 80,
+          "potassium": 70,
+          "zinc": 0.7
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Diabetes",
+          "warning": "Moderate Consumption",
+          "note": "Contains high carbohydrate content from rice. Portion control is recommended for diabetics."
+        },
+        {
+          "disease": "Gut Health",
+          "warning": "Beneficial",
+          "note": "Fermented oncom contains probiotics that may support healthy gut flora."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Karedok",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Karedok is a traditional Sundanese salad made from raw vegetables like long beans, bean sprouts, eggplant, and cabbage, dressed with peanut sauce.",
+      "origin": "West Java",
+      "ingredients": [
+        { "name": "Long beans", "amount": "100 gram" },
+        { "name": "Bean sprouts", "amount": "100 gram" },
+        { "name": "Eggplant", "amount": "50 gram" },
+        { "name": "Cabbage", "amount": "50 gram" },
+        { "name": "Cucumber", "amount": "50 gram" },
+        { "name": "Peanut sauce", "amount": "100 gram" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 90,
+        "fat": 4,
+        "carbohydrate": 10,
+        "sugar": 2,
+        "protein": 3,
+        "fiber": 2.5,
+        "cholesterol": 0,
+        "sodium": 80,
+        "water": 78,
+        "vitamins": {
+          "vitamin_A": 0.5,
+          "vitamin_B1": 0.08,
+          "vitamin_B2": 0.05,
+          "vitamin_B3": 0.8,
+          "vitamin_B5": 0.3,
+          "vitamin_B6": 0.1,
+          "vitamin_B9": 25,
+          "vitamin_B12": 0,
+          "vitamin_C": 18,
+          "vitamin_D": 0,
+          "vitamin_E": 0.8,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 35,
+          "iron": 1.2,
+          "magnesium": 25,
+          "phosphorus": 70,
+          "potassium": 220,
+          "zinc": 0.5
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Peanut Allergy",
+          "warning": "HIGH RISK",
+          "note": "Contains peanuts in the sauce. Avoid if allergic."
+        },
+        {
+          "disease": "Digestive Health",
+          "warning": "Beneficial",
+          "note": "High in raw vegetables with fiber, supporting digestive health and nutrient absorption."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Pecel",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Pecel is a mixture of boiled vegetables such as spinach, long beans, and bean sprouts, served with spicy peanut sauce.",
+      "origin": "East Java",
+      "ingredients": [
+        { "name": "Spinach", "amount": "100 gram" },
+        { "name": "Long beans", "amount": "100 gram" },
+        { "name": "Bean sprouts", "amount": "100 gram" },
+        { "name": "Spicy peanut sauce", "amount": "100 gram" },
+        { "name": "Crackers", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 95,
+        "fat": 4,
+        "carbohydrate": 11,
+        "sugar": 2,
+        "protein": 3,
+        "fiber": 2,
+        "cholesterol": 0,
+        "sodium": 80,
+        "water": 78,
+        "vitamins": {
+          "vitamin_A": 1.0,
+          "vitamin_B1": 0.1,
+          "vitamin_B2": 0.08,
+          "vitamin_B3": 0.7,
+          "vitamin_B5": 0.3,
+          "vitamin_B6": 0.1,
+          "vitamin_B9": 30,
+          "vitamin_B12": 0,
+          "vitamin_C": 20,
+          "vitamin_D": 0,
+          "vitamin_E": 0.6,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 40,
+          "iron": 2.0,
+          "magnesium": 30,
+          "phosphorus": 65,
+          "potassium": 250,
+          "zinc": 0.6
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Peanut Allergy",
+          "warning": "HIGH RISK",
+          "note": "Contains peanuts in the sauce. Avoid if allergic."
+        },
+        {
+          "disease": "Iron Deficiency",
+          "warning": "Beneficial",
+          "note": "Good source of iron from spinach and other vegetables, helpful for preventing anemia."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Sayur Asem",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Sayur asem is a fresh sour soup containing long beans, corn, chayote, and melinjo, popular as a home-cooked meal.",
+      "origin": "West Java",
+      "ingredients": [
+        { "name": "Long beans", "amount": "100 gram" },
+        { "name": "Sweet corn", "amount": "100 gram" },
+        { "name": "Chayote", "amount": "100 gram" },
+        { "name": "Melinjo", "amount": "50 gram" },
+        { "name": "Tamarind", "amount": "20 gram" },
+        { "name": "Shallots", "amount": "4 cloves" },
+        { "name": "Garlic", "amount": "2 cloves" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 50,
+        "fat": 0.5,
+        "carbohydrate": 10,
+        "sugar": 2,
+        "protein": 1.5,
+        "fiber": 2,
+        "cholesterol": 0,
+        "sodium": 30,
+        "water": 85,
+        "vitamins": {
+          "vitamin_A": 0.3,
+          "vitamin_B1": 0.05,
+          "vitamin_B2": 0.04,
+          "vitamin_B3": 0.5,
+          "vitamin_B5": 0.2,
+          "vitamin_B6": 0.1,
+          "vitamin_B9": 20,
+          "vitamin_B12": 0,
+          "vitamin_C": 15,
+          "vitamin_D": 0,
+          "vitamin_E": 0.2,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 20,
+          "iron": 0.8,
+          "magnesium": 15,
+          "phosphorus": 40,
+          "potassium": 180,
+          "zinc": 0.3
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Weight Management",
+          "warning": "Beneficial",
+          "note": "Low in calories and high in fiber, making it a good option for those managing weight."
+        },
+        {
+          "disease": "Diabetes",
+          "warning": "Safe",
+          "note": "Low glycemic index and minimal sugar content make it suitable for diabetics."
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Soto Ayam",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Soto Ayam is a chicken soup with yellow turmeric broth, served with rice vermicelli, eggs, and celery.",
+      "origin": "Central Java",
+      "ingredients": [
+        { "name": "Chicken", "amount": "500 gram" },
+        { "name": "Rice vermicelli", "amount": "100 gram" },
+        { "name": "Boiled eggs", "amount": "2 pieces" },
+        { "name": "Shallots", "amount": "6 cloves" },
+        { "name": "Garlic", "amount": "4 cloves" },
+        { "name": "Turmeric", "amount": "3 cm" },
+        { "name": "Lemongrass", "amount": "1 stalk" },
+        { "name": "Celery", "amount": "to taste" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 90,
+        "fat": 3,
+        "carbohydrate": 8,
+        "sugar": 1,
+        "protein": 7,
+        "fiber": 1,
+        "cholesterol": 22,
+        "sodium": 100,
+        "water": 78,
+        "vitamins": {
+          "vitamin_A": 0.2,
+          "vitamin_B1": 0.06,
+          "vitamin_B2": 0.09,
+          "vitamin_B3": 2.0,
+          "vitamin_B5": 0.5,
+          "vitamin_B6": 0.2,
+          "vitamin_B9": 8,
+          "vitamin_B12": 0.2,
+          "vitamin_C": 5,
+          "vitamin_D": 0.1,
+          "vitamin_E": 0.2,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 15,
+          "iron": 0.7,
+          "magnesium": 15,
+          "phosphorus": 70,
+          "potassium": 150,
+          "zinc": 0.8
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Respiratory Conditions",
+          "warning": "Beneficial",
+          "note": "Warm broth and anti-inflammatory properties of turmeric may help soothe respiratory issues."
+        },
+        {
+          "disease": "Hypertension",
+          "warning": "Moderate Consumption",
+          "note": "Watch salt content for those with high blood pressure."
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Tinutuan",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Tinutuan is a Manado porridge consisting of various vegetables such as water spinach, spinach, corn, sweet potatoes, and basil leaves.",
+      "origin": "North Sulawesi",
+      "ingredients": [
+        { "name": "Rice", "amount": "200 gram" },
+        { "name": "Sweet corn", "amount": "100 gram" },
+        { "name": "Yellow sweet potato", "amount": "100 gram" },
+        { "name": "Water spinach", "amount": "50 gram" },
+        { "name": "Spinach", "amount": "50 gram" },
+        { "name": "Basil leaves", "amount": "10 gram" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 80,
+        "fat": 0.5,
+        "carbohydrate": 17,
+        "sugar": 2,
+        "protein": 2,
+        "fiber": 2,
+        "cholesterol": 0,
+        "sodium": 20,
+        "water": 78,
+        "vitamins": {
+          "vitamin_A": 0.8,
+          "vitamin_B1": 0.07,
+          "vitamin_B2": 0.05,
+          "vitamin_B3": 0.8,
+          "vitamin_B5": 0.4,
+          "vitamin_B6": 0.1,
+          "vitamin_B9": 25,
+          "vitamin_B12": 0,
+          "vitamin_C": 8,
+          "vitamin_D": 0,
+          "vitamin_E": 0.3,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 25,
+          "iron": 1.2,
+          "magnesium": 20,
+          "phosphorus": 50,
+          "potassium": 190,
+          "zinc": 0.4
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Diabetes",
+          "warning": "Moderate Consumption",
+          "note": "Contains carbohydrates from rice and sweet potatoes, but the fiber from vegetables helps moderate blood sugar spikes."
+        },
+        {
+          "disease": "Heart Health",
+          "warning": "Beneficial",
+          "note": "Very low in fat and cholesterol, while providing essential vitamins and minerals for cardiovascular health."
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Pepes Ikan Kembung",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Pepes ikan kembung is mackerel seasoned with spices, wrapped in banana leaves and then steamed.",
+      "origin": "West Java",
+      "ingredients": [
+        { "name": "Mackerel fish", "amount": "300 gram" },
+        { "name": "Basil leaves", "amount": "20 gram" },
+        { "name": "Shallots", "amount": "6 cloves" },
+        { "name": "Garlic", "amount": "4 cloves" },
+        { "name": "Red chili", "amount": "4 pieces" },
+        { "name": "Lemongrass", "amount": "1 stalk" },
+        { "name": "Turmeric", "amount": "2 cm" },
+        { "name": "Banana leaves", "amount": "2 pieces" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 140,
+        "fat": 6,
+        "carbohydrate": 2,
+        "sugar": 0.5,
+        "protein": 18,
+        "fiber": 0.5,
+        "cholesterol": 60,
+        "sodium": 90,
+        "water": 72,
+        "vitamins": {
+          "vitamin_A": 0.1,
+          "vitamin_B1": 0.05,
+          "vitamin_B2": 0.1,
+          "vitamin_B3": 6.5,
+          "vitamin_B5": 1.0,
+          "vitamin_B6": 0.4,
+          "vitamin_B9": 10,
+          "vitamin_B12": 3.0,
+          "vitamin_C": 2,
+          "vitamin_D": 5.0,
+          "vitamin_E": 0.5,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 40,
+          "iron": 1.5,
+          "magnesium": 30,
+          "phosphorus": 240,
+          "potassium": 320,
+          "zinc": 0.7
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Heart Health",
+          "warning": "Beneficial",
+          "note": "Rich in omega-3 fatty acids from mackerel that support cardiovascular health."
+        },
+        {
+          "disease": "Bone Health",
+          "warning": "Beneficial",
+          "note": "Good source of calcium and vitamin D for strong bones."
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Mie Aceh",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Mie Aceh is thick yellow noodles with curry-like spices, containing beef/shrimp/crab and vegetables.",
+      "origin": "Aceh",
+      "ingredients": [
+        { "name": "Yellow noodles", "amount": "200 gram" },
+        { "name": "Beef/shrimp", "amount": "100 gram" },
+        { "name": "Cabbage", "amount": "50 gram" },
+        { "name": "Bean sprouts", "amount": "50 gram" },
+        { "name": "Curry powder", "amount": "1 tablespoon" },
+        { "name": "Shallots", "amount": "5 cloves" },
+        { "name": "Garlic", "amount": "3 cloves" },
+        { "name": "Red chili", "amount": "8 pieces" },
+        { "name": "Tomato", "amount": "1 piece" },
+        { "name": "Cooking oil", "amount": "2 tablespoons" },
+        { "name": "Salt", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 180,
+        "fat": 5,
+        "carbohydrate": 25,
+        "sugar": 1.5,
+        "protein": 10,
+        "fiber": 2,
+        "cholesterol": 25,
+        "sodium": 250,
+        "water": 55,
+        "vitamins": {
+          "vitamin_A": 0.3,
+          "vitamin_B1": 0.1,
+          "vitamin_B2": 0.08,
+          "vitamin_B3": 3.0,
+          "vitamin_B5": 0.6,
+          "vitamin_B6": 0.2,
+          "vitamin_B9": 15,
+          "vitamin_B12": 0.5,
+          "vitamin_C": 8,
+          "vitamin_D": 0,
+          "vitamin_E": 0.4,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 25,
+          "iron": 2.0,
+          "magnesium": 25,
+          "phosphorus": 95,
+          "potassium": 180,
+          "zinc": 1.0
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Hypertension",
+          "warning": "CAUTION",
+          "note": "Higher sodium content from noodles and seasoning may affect blood pressure."
+        },
+        {
+          "disease": "Diabetes",
+          "warning": "Moderate Consumption",
+          "note": "Contains refined carbohydrates in noodles which may affect blood sugar levels."
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Sate Ayam",
+      "nation": "Indonesia",
+      "image": "/pisanggoreng.jpeg",
+      "description": "Sate ayam is skewered grilled chicken served with peanut sauce and rice cake.",
+      "origin": "Madura",
+      "ingredients": [
+        { "name": "Chicken meat", "amount": "250 gram" },
+        { "name": "Sweet soy sauce", "amount": "3 tablespoons" },
+        { "name": "Peanut sauce", "amount": "100 gram" },
+        { "name": "Rice cake (lontong)", "amount": "200 gram" },
+        { "name": "Shallots", "amount": "4 cloves" },
+        { "name": "Red chili", "amount": "3 pieces" },
+        { "name": "Lime", "amount": "1 piece" },
+        { "name": "Wooden skewers", "amount": "10 pieces" },
+        { "name": "Fried shallots", "amount": "to taste" }
+      ],
+      "nutrition_per_100g": {
+        "calories": 200,
+        "fat": 8,
+        "carbohydrate": 15,
+        "sugar": 5,
+        "protein": 16,
+        "fiber": 1.5,
+        "cholesterol": 45,
+        "sodium": 200,
+        "water": 58,
+        "vitamins": {
+          "vitamin_A": 0.1,
+          "vitamin_B1": 0.1,
+          "vitamin_B2": 0.12,
+          "vitamin_B3": 5.0,
+          "vitamin_B5": 1.0,
+          "vitamin_B6": 0.3,
+          "vitamin_B9": 10,
+          "vitamin_B12": 0.3,
+          "vitamin_C": 3,
+          "vitamin_D": 0.1,
+          "vitamin_E": 1.5,
+          "vitamin_K": 0
+        },
+        "minerals": {
+          "calcium": 30,
+          "iron": 1.5,
+          "magnesium": 35,
+          "phosphorus": 150,
+          "potassium": 220,
+          "zinc": 1.2
+        }
+      },
+      "disease_rate": [
+        {
+          "disease": "Peanut Allergy",
+          "warning": "HIGH RISK",
+          "note": "Contains peanut sauce which is a major allergen. Avoid completely if allergic."
+        },
+        {
+          "disease": "Diabetes",
+          "warning": "Moderate Consumption",
+          "note": "Sweet soy sauce contains high sugar, which may affect blood glucose levels."
+        }
+      ]
+    }
+  ]
+}

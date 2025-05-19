@@ -1,56 +1,49 @@
-"use client";
-import React from "react";
-import Image from "next/image";
-import Autoplay from "embla-carousel-autoplay";
+'use client';
+import React, { useEffect, useState } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
 
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components";
-
-const food = [
-  {
-    id: 1,
-    name: "Rendang",
-    nation: "Indonesia",
-    image: "/rendang.jpg",
-  },
-  {
-    id: 2,
-    name: "Hamburger",
-    nation: "USA",
-    image: "/hamburger.jpg",
-  },
-  {
-    id: 3,
-    name: "Pizza",
-    nation: "Italy",
-    image: "/pizza.jpg",
-  },
-  {
-    id: 4,
-    name: "Pisang Goreng",
-    nation: "Indonesia",
-    image: "/pisanggoreng.jpeg",
-  },
-  {
-    id: 5,
-    name: "Pisang Goreng",
-    nation: "Indonesia",
-    image: "/pisanggoreng.jpeg",
-  },
-  {
-    id: 6,
-    name: "Pisang Goreng",
-    nation: "Indonesia",
-    image: "/pisanggoreng.jpeg",
-  },
-  {
-    id: 7,
-    name: "Pisang Goreng",
-    nation: "Indonesia",
-    image: "/pisanggoreng.jpeg",
-  },
-];
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, ItemCard } from '@/components';
+import { Food, getFoodRecommendations } from '@/server/api';
 
 const RecommendationFood = () => {
+  const [foods, setFoods] = useState<Food[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchFoods = async () => {
+      try {
+        const data = await getFoodRecommendations();
+        setFoods(data);
+      } catch (err) {
+        setError('Failed to fetch food recommendations');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFoods();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="container mx-auto px-4 py-10 lg:py-20 text-center">
+        <h1>Jelajahi Makanan</h1>
+        <p className="mt-3 mx-auto">Loading...</p>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="container mx-auto px-4 py-10 lg:py-20 text-center">
+        <h1>Jelajahi Makanan</h1>
+        <p className="mt-3 mx-auto text-red-500">{error}</p>
+      </section>
+    );
+  }
+
   return (
     <section className="container mx-auto px-4 py-10 lg:py-20 text-center">
       <h1>Jelajahi Makanan</h1>
@@ -64,13 +57,9 @@ const RecommendationFood = () => {
         className="w-full mt-4"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
-          {Array.from({ length: food.length }).map((_, index) => (
-            <CarouselItem key={food[index].id} className="pl-4 md:basis-1/2 lg:basis-1/4 text-left">
-              <div className="relative h-50 w-full overflow-hidden">
-                <Image src={food[index].image} alt={food[index].name} sizes="100" fill className="object-cover" />
-              </div>
-              <h2 className="text-lg font-semibold mt-4">{food[index].name}</h2>
-              <p className="text-gray-500">{food[index].nation}</p>
+          {foods.map((food) => (
+            <CarouselItem key={food.id} className="pl-4 md:basis-1/2 lg:basis-1/4 text-left">
+              <ItemCard id={food.id.toString()} image={food.image} name={food.name} nation={food.nation} />
             </CarouselItem>
           ))}
         </CarouselContent>
