@@ -1,4 +1,4 @@
-import { SigninModel, SigninRequest, SigninResponse } from '@/Models/index';
+import { SigninModel, SigninRequest, SigninResponse } from '@/models/index';
 
 export interface SigninViewInterface {
   showLoading(isLoading: boolean): void;
