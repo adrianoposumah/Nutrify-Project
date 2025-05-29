@@ -1,11 +1,13 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Button, SigninView } from '@/components';
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+export const metadata: Metadata = {
+  title: 'Masuk',
+  description: 'Masuk ke akun anda untuk melanjutkan',
+};
 
 export default function SignIn() {
   return (
@@ -18,25 +20,11 @@ export default function SignIn() {
           <CardDescription>
             <p>Jadilah bagian dari kontrubusi informasi </p>
           </CardDescription>
-        </CardHeader>
+        </CardHeader>{' '}
         <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="Masukkan Email anda disini" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" placeholder="Masukkan Password anda disini" />
-              </div>
-            </div>
-          </form>
+          <SigninView />
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
-          <Button className="w-full" type="submit">
-            Sign In
-          </Button>
           <div className="flex flex-col justify-between items-center w-full">
             <p className="text-sm text-gray-500 self-end">Belum punya Akun?</p>
             <Button variant="outline" asChild>
@@ -52,7 +40,7 @@ export default function SignIn() {
           </div>
           <Button variant="outline" className="w-full flex items-center">
             <Image src="/Google.svg" alt="Google" width={30} height={30} />
-            Sign up with Google
+            Sign in with Google
           </Button>
         </CardFooter>
       </Card>

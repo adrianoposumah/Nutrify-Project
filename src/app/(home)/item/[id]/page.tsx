@@ -81,7 +81,6 @@ export default function ItemDetail() {
           </BreadcrumbList>
         </Breadcrumb>
 
-        {/* Mobile: Image appears at top */}
         <div className="md:hidden mt-6 mb-8">
           <Image src={food.image} alt={food.name} width={600} height={400} className="w-full h-auto rounded-lg object-cover" />
         </div>
@@ -131,12 +130,10 @@ export default function ItemDetail() {
           </div>
 
           <div className="col-span-full md:col-span-2">
-            {/* Desktop: Image appears in sidebar */}
             <div className="hidden md:block mb-8">
               <Image src={food.image} alt={food.name} width={600} height={400} className="w-full h-auto rounded-lg object-cover" />
             </div>
 
-            {/* Nutrition information will be added in future updates */}
             <div className="rounded-lg p-6 border">
               <h2 className="text-xl font-bold mb-4">Nutrisi dari {food.name}</h2>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (

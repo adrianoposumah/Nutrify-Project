@@ -19,3 +19,8 @@ export { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbP
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './ui/accordion';
 export { Badge, badgeVariants } from './ui/badge';
 export { Skeleton } from './ui/skeleton';
+export { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
+
+// View components
+export { SigninView } from './view/Auth/SigninView';
+export { SignupView } from './view/Auth/SignupView';
