@@ -1,11 +1,13 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import type React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Button, SignupView } from '@/components';
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+export const metadata: Metadata = {
+  title: 'Daftar',
+  description: 'Buat akun baru untuk melanjutkan',
+};
 
 export default function SignUp() {
   return (
@@ -18,33 +20,11 @@ export default function SignUp() {
           <CardDescription>
             <p>Jadilah bagian dari kontrubusi informasi </p>
           </CardDescription>
-        </CardHeader>
+        </CardHeader>{' '}
         <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">Nama</Label>
-                <Input id="name" type="name" placeholder="Masukkan Nama anda disini" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="Masukkan Email anda disini" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" placeholder="Masukkan Password anda disini" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="password">Confirm Password</Label>
-                <Input id="password" type="password" placeholder="Masukkan Password yang sama anda disini" />
-              </div>
-            </div>
-          </form>
+          <SignupView />
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
-          <Button className="w-full" type="submit">
-            Sign Up
-          </Button>
           <div className="flex flex-col justify-between items-center w-full">
             <p className="text-sm text-gray-500 self-end">Punya Akun?</p>
             <Button variant="outline" asChild>

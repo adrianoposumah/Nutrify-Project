@@ -1,18 +1,18 @@
-import { Poppins, Work_Sans } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+import { Poppins, Work_Sans } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
 
-import "../globals.css";
-import { Navbar, Footer } from "@/components";
+import '../globals.css';
+import { Navbar, Footer } from '@/components';
 
 const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const workSans = Work_Sans({
-  variable: "--font-work-sans",
-  subsets: ["latin"],
+  variable: '--font-work-sans',
+  subsets: ['latin'],
 });
 
 export default function RootLayout({
