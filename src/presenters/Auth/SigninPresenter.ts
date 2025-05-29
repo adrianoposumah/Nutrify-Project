@@ -1,4 +1,4 @@
-import { SigninModel, type SigninRequest, type SigninResponse } from '@/Models/Auth/SignInModel';
+import { SigninModel, SigninRequest, SigninResponse } from '@/Models/index';
 
 export interface SigninViewInterface {
   showLoading(isLoading: boolean): void;
