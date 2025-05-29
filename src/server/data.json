@@ -5,7 +5,9 @@
       "name": "Rendang",
       "nation": "Indonesia",
       "image": "/rendang.jpg",
+      "category": "food",
       "description": "Rendang is a rich and tender coconut beef stew which is explosively flavorful and famous throughout Indonesia. Simmered in coconut milk and spices until the liquid evaporates, this dish is intensely flavorful with complex layers of taste from the various spices used in its preparation.",
+      "origin": "Minangkabau, West Sumatra",
       "ingredients": [
         { "name": "Lean beef", "amount": "1 kg" },
         { "name": "Coconut milk", "amount": "1 liter" },
@@ -72,6 +74,7 @@
       "name": "Hamburger",
       "nation": "USA",
       "image": "/hamburger.jpg",
+      "category": "food",
       "description": "Hamburger is a sandwich consisting of a cooked patty of ground meat placed inside a sliced bread roll or bun.",
       "origin": "USA",
       "ingredients": [
@@ -136,6 +139,7 @@
       "name": "Pizza",
       "nation": "Italy",
       "image": "/pizza.jpg",
+      "category": "food",
       "description": "Pizza is a savory dish consisting of a round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and various other ingredients.",
       "origin": "Italy",
       "ingredients": [
@@ -197,6 +201,8 @@
       "name": "Pisang Goreng",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Pisang Goreng is a popular Indonesian snack made of banana coated in batter and deep fried until golden and crispy.",
       "origin": "Indonesia",
       "ingredients": [
@@ -260,6 +266,8 @@
       "name": "Sop Konro",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Sop Konro is a Makassar-style beef rib soup cooked with various spices like cinnamon, kluwek, tamarind, and coriander. The soup has a dark color and rich flavor.",
       "origin": "Makassar, South Sulawesi",
       "ingredients": [
@@ -341,6 +349,8 @@
       "name": "Ayam Geprek",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Ayam geprek is a crispy fried chicken dish that is crushed and mixed with spicy chili sauce, popular as fast food in Indonesia.",
       "origin": "Yogyakarta",
       "ingredients": [
@@ -402,6 +412,8 @@
       "name": "Roti Bakar",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Roti bakar is toasted bread usually served with various toppings such as butter, jam, cheese, or chocolate.",
       "origin": "-",
       "ingredients": [
@@ -455,6 +467,8 @@
       "name": "Kopi Susu",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Kopi susu is a beverage consisting of a mixture of coffee and milk, often with added sugar for sweetness.",
       "origin": "-",
       "ingredients": [
@@ -513,6 +527,8 @@
       "name": "Papeda",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Papeda is a staple food from Papua and Maluku in the form of sago porridge with a chewy, sticky texture and a clear white color.",
       "origin": "Papua, Maluku",
       "ingredients": [
@@ -573,6 +589,8 @@
       "name": "Pempek",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Pempek is a Palembang specialty made from fish and sago flour, served with a sour and spicy cuko sauce.",
       "origin": "Palembang, South Sumatra",
       "ingredients": [
@@ -635,6 +653,8 @@
       "name": "Gudeg",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Gudeg is a traditional dish from Yogyakarta made with young jackfruit cooked in coconut milk and palm sugar, resulting in a sweet and savory flavor.",
       "origin": "Yogyakarta",
       "ingredients": [
@@ -699,6 +719,8 @@
       "name": "Rawon",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Rawon is a black beef soup from East Java, using kluwek as a coloring agent and flavor enhancer.",
       "origin": "East Java",
       "ingredients": [
@@ -762,6 +784,8 @@
       "name": "Ayam Betutu",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Ayam Betutu is a whole chicken seasoned with Balinese spices, wrapped in banana leaves, then grilled or steamed until tender.",
       "origin": "Bali",
       "ingredients": [
@@ -827,6 +851,8 @@
       "name": "Lawar",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
+
       "description": "Lawar is a mixture of chopped meat, vegetables, grated coconut, and Balinese spices, often served as a side dish.",
       "origin": "Bali",
       "ingredients": [
@@ -890,6 +916,7 @@
       "name": "Gado-Gado",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Gado-Gado is an Indonesian boiled vegetable salad served with peanut sauce, eggs, and crackers.",
       "origin": "Jakarta",
       "ingredients": [
@@ -954,6 +981,7 @@
       "name": "Nasi Tutug Oncom",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Nasi Tutug Oncom is rice mixed with fried fermented soybean cake and spices, resulting in a savory taste and distinctive aroma.",
       "origin": "Tasikmalaya, West Java",
       "ingredients": [
@@ -1016,6 +1044,7 @@
       "name": "Karedok",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Karedok is a traditional Sundanese salad made from raw vegetables like long beans, bean sprouts, eggplant, and cabbage, dressed with peanut sauce.",
       "origin": "West Java",
       "ingredients": [
@@ -1077,6 +1106,7 @@
       "name": "Pecel",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Pecel is a mixture of boiled vegetables such as spinach, long beans, and bean sprouts, served with spicy peanut sauce.",
       "origin": "East Java",
       "ingredients": [
@@ -1137,6 +1167,7 @@
       "name": "Sayur Asem",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Sayur asem is a fresh sour soup containing long beans, corn, chayote, and melinjo, popular as a home-cooked meal.",
       "origin": "West Java",
       "ingredients": [
@@ -1200,6 +1231,7 @@
       "name": "Soto Ayam",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Soto Ayam is a chicken soup with yellow turmeric broth, served with rice vermicelli, eggs, and celery.",
       "origin": "Central Java",
       "ingredients": [
@@ -1264,6 +1296,7 @@
       "name": "Tinutuan",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Tinutuan is a Manado porridge consisting of various vegetables such as water spinach, spinach, corn, sweet potatoes, and basil leaves.",
       "origin": "North Sulawesi",
       "ingredients": [
@@ -1326,6 +1359,7 @@
       "name": "Pepes Ikan Kembung",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Pepes ikan kembung is mackerel seasoned with spices, wrapped in banana leaves and then steamed.",
       "origin": "West Java",
       "ingredients": [
@@ -1390,6 +1424,7 @@
       "name": "Mie Aceh",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Mie Aceh is thick yellow noodles with curry-like spices, containing beef/shrimp/crab and vegetables.",
       "origin": "Aceh",
       "ingredients": [
@@ -1456,6 +1491,7 @@
       "name": "Sate Ayam",
       "nation": "Indonesia",
       "image": "/pisanggoreng.jpeg",
+      "category": "food",
       "description": "Sate ayam is skewered grilled chicken served with peanut sauce and rice cake.",
       "origin": "Madura",
       "ingredients": [
