@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { SignupPresenter, type SignupViewInterface } from '@/presenters/Auth/SignupPresenter';
+import { SignupPresenter, SignupViewInterface } from '@/presenters/index';
 
 export function SignupView() {
   const [formData, setFormData] = useState({
