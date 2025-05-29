@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SignupModel, SignupRequest, SignupResponse } from '@/Models/index';
+import { SignupModel, SignupRequest, SignupResponse } from '@/models/index';
 
 export interface SignupViewInterface {
   showLoading(isLoading: boolean): void;
