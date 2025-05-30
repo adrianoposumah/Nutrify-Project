@@ -1,4 +1,4 @@
-import UserSidebar from '@/components/main/UserSidebar';
+import { UserSidebar } from '@/components';
 
 export default function UserDashboardLayout({
   children,

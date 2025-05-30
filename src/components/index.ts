@@ -2,6 +2,7 @@
 export { default as Navbar } from './main/Navbar';
 export { default as Footer } from './main/Footer';
 export { default as ItemCard } from './main/ItemCard';
+export { default as UserSidebar } from './main/UserSidebar';
 
 // Feature components
 export { default as BackgroundProvider } from './features/BackgroundProvider';
@@ -20,6 +21,9 @@ export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './
 export { Badge, badgeVariants } from './ui/badge';
 export { Skeleton } from './ui/skeleton';
 export { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
+export { Textarea } from './ui/textarea';
+export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+export { Combobox } from './ui/combobox';
 
 // View components
 export { SigninView } from './view/Auth/SigninView';

@@ -2,8 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { SigninModel, type SigninRequest } from '@/models/Auth/SignInModel';
-import { SignupModel, type SignupRequest } from '@/models/Auth/SignupModel';
+import { SigninModel, SigninRequest, SignupModel, SignupRequest } from '@/models/index';
 
 export interface UseAuthReturn {
   isAuthenticated: boolean;

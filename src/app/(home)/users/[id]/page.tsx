@@ -1,6 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage, Card, CardContent, CardHeader, CardTitle, Badge } from '@/components';
+
 import { CheckCircle, Mail, User, Calendar, Ruler, Weight } from 'lucide-react';
 
 const profileData = {
