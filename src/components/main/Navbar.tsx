@@ -131,7 +131,7 @@ const Navbar = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="cursor-pointer focus:bg-orange-50 focus:text-orange-600" asChild>
-                    <Link href="/settings" className="flex items-center space-x-3">
+                    <Link href="/users/settings" className="flex items-center space-x-3">
                       <Settings className="mr-3 h-4 w-4" />
                       <span className="text-sm">Settings</span>
                     </Link>
