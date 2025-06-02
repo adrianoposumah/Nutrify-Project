@@ -136,15 +136,20 @@ export default function ItemDetail() {
 
             <div className="rounded-lg p-6 border">
               <h2 className="text-xl font-bold mb-4">Nutrisi dari {food.name}</h2>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-                <div key={item} className="flex justify-between py-3 border-b">
-                  <div className="flex items-center">
-                    <span className="font-medium text-base">Protein</span>
-                    {item <= 2 && <span className="text-sm text-gray-500 ml-2">15g</span>}
-                  </div>
-                  <span className="font-medium">20%</span>
+
+              <div className="flex justify-between py-3 border-b">
+                <div className="flex flex-col items-center gap-3">
+                  <span className="font-medium text-base">Protein</span>
                 </div>
-              ))}
+                <span className="font-medium">20%</span>
+              </div>
+
+              <div className="flex justify-between py-3 border-b">
+                <div className="flex flex-col items-center gap-3">
+                  <span className="font-medium text-base">Protein</span>
+                </div>
+                <span className="font-medium">20%</span>
+              </div>
             </div>
           </div>
         </div>
