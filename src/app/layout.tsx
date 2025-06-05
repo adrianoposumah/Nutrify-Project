@@ -1,6 +1,8 @@
 import { Poppins, Work_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 
+import { Toaster } from 'react-hot-toast';
+
 import './globals.css';
 
 const poppins = Poppins({
@@ -23,6 +25,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} ${workSans.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Toaster position="top-right" reverseOrder={false} />
           {children}
         </ThemeProvider>
       </body>

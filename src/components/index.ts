@@ -26,5 +26,7 @@ export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 export { Combobox } from './ui/combobox';
 
 // View components
-export { SigninView } from './view/Auth/SigninView';
-export { SignupView } from './view/Auth/SignupView';
+export { LoginForm } from './view/Auth/LoginForm';
+export { RegisterForm } from './view/Auth/RegisterForm';
+export { UserCard } from './view/User/UserCard';
+export { UserNav } from './view/User/UserNav';
