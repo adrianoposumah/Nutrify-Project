@@ -1,5 +1,8 @@
-export { SignupPresenter } from './Auth/SignupPresenter';
-export type { SignupViewInterface } from './Auth/SignupPresenter';
+export { AdminPresenter } from './AdminPresenter';
+export type { AdminView } from './AdminPresenter';
 
-export { SigninPresenter } from './Auth/SigninPresenter';
-export type { SigninViewInterface } from './Auth/SigninPresenter';
+export { AuthPresenter } from './AuthPresenter';
+export type { AuthView } from './AuthPresenter';
+
+export { UserPresenter } from './UserPresenter';
+export type { UserView } from './UserPresenter';

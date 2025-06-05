@@ -2,7 +2,7 @@ import type React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Button, SignupView } from '@/components';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Button, RegisterForm } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Daftar',
@@ -22,7 +22,7 @@ export default function SignUp() {
           </CardDescription>
         </CardHeader>{' '}
         <CardContent>
-          <SignupView />
+          <RegisterForm />
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
           <div className="flex flex-col justify-between items-center w-full">

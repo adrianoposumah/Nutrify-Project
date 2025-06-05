@@ -26,8 +26,8 @@ const UserSidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="w-1/4 p-5 rounded-lg shadow-md">
-      <h2 className="text-xl font-bold mb-6">Menu</h2>
+    <aside className="w-1/4  rounded-lg shadow-md">
+      <h2 className="text-xl font-bold mb-6 p-5">Menu</h2>
       <nav>
         <ul className="space-y-4">
           {navigationItems.map((item) => {
