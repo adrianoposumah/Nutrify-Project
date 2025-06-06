@@ -1,29 +1,25 @@
 'use client';
 
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Badge, Card, CardContent } from '@/components/index';
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from '@/components/ui/breadcrumb';
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import { MapPin } from 'lucide-react';
 import { ItemPresenter } from '@/presenters/ItemPresenter';
 import { Item } from '@/types/index';
 import LoadingItemDetail from '@/app/(home)/item/[id]/loading';
 
-// Mock component for recommendations
+// Komponen rekomendasi makanan (dummy)
 const RecommendationFood = () => (
   <div className="mt-8">
-    <h2 className="text-2xl font-bold mb-4">Recommended Foods</h2>
+    <h2 className="text-2xl font-bold mb-4">Rekomendasi Makanan</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {[1, 2, 3, 4].map((item) => (
         <Card key={item} className="overflow-hidden">
           <div className="h-48 bg-muted"></div>
           <CardContent className="p-4">
-            <h3 className="font-medium">Similar Food {item}</h3>
+            <h3 className="font-medium">Makanan Serupa {item}</h3>
           </CardContent>
         </Card>
       ))}
@@ -37,19 +33,17 @@ export default function ItemDetail() {
 
   const [food, setFood] = useState<Item | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchItemDetail = async () => {
       try {
         setIsLoading(true);
-        setError(null);
         const itemPresenter = new ItemPresenter();
         const response = await itemPresenter.getItemById(itemId);
         setFood(response.data);
       } catch (err) {
-        setError('Failed to fetch item detail');
         console.error('Error fetching item:', err);
+        notFound();
       } finally {
         setIsLoading(false);
       }
@@ -60,21 +54,26 @@ export default function ItemDetail() {
     }
   }, [itemId]);
 
+  // Set document title based on food name
+  useEffect(() => {
+    if (food?.name) {
+      document.title = `${food.name} | Nutrify`;
+    } else if (isLoading) {
+      document.title = 'Loading... - Nutrify';
+    }
+
+    // Cleanup function to reset title when component unmounts
+    return () => {
+      document.title = 'Nutrify';
+    };
+  }, [food?.name, isLoading]);
+
   if (isLoading) {
     return <LoadingItemDetail />;
   }
 
-  if (error || !food) {
-    return (
-      <div className="container mx-auto px-4 py-10 lg:py-20">
-        <div className="flex flex-col justify-center items-center h-64">
-          <p className="text-xl text-red-500">{error || 'Item not found'}</p>
-          <Link href="/" className="mt-4 text-blue-500 hover:underline">
-            Return to homepage
-          </Link>
-        </div>
-      </div>
-    );
+  if (!food) {
+    notFound();
   }
 
   return (
@@ -84,7 +83,7 @@ export default function ItemDetail() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/">Home</Link>
+                <Link href="/">Beranda</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -115,9 +114,9 @@ export default function ItemDetail() {
             </div>
             <div className="mb-8 text-pretty">
               <p className="leading-relaxed">{food.description}</p>
-            </div>{' '}
+            </div>
             <div className="mb-8">
-              <h2 className="text-xl font-bold mb-4">Ingredients:</h2>
+              <h2 className="text-xl font-bold mb-4">Bahan-bahan:</h2>
               {food.ingredients && food.ingredients.length > 0 ? (
                 <div className="border rounded-lg overflow-hidden">
                   {food.ingredients.map((ingredient, index) => (
@@ -132,7 +131,7 @@ export default function ItemDetail() {
               )}
             </div>
             <div className="mb-8">
-              <h2 className="text-xl font-bold mb-4">Health Considerations:</h2>
+              <h2 className="text-xl font-bold mb-4">Pertimbangan Kesehatan:</h2>
               {food.disease_rate && food.disease_rate.length > 0 ? (
                 <Accordion type="single" collapsible className="w-full">
                   {food.disease_rate.map((diseaseItem, index) => (
@@ -164,34 +163,92 @@ export default function ItemDetail() {
 
             <Card className="mb-8">
               <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-4">Nutrition Facts</h2>
+                <h2 className="text-xl font-bold mb-4">Fakta Nutrisi</h2>
 
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="font-medium">Category</span>
+                    <span className="font-medium">Kategori</span>
                     <span className="text-muted-foreground capitalize">{food.category}</span>
                   </div>
 
                   <div className="border-t pt-4">
-                    <div className="text-sm text-muted-foreground mb-2">Nutritional information varies based on preparation method and portion size.</div>
-
-                    {/* Example nutrition facts - in a real app, these would come from the API */}
+                    <div className="text-sm text-muted-foreground mb-2">Informasi nutrisi per 100g sajian.</div>
                     <div className="space-y-2">
                       <div className="flex justify-between">
+                        <span>Kalori</span>
+                        <span>61 kkal</span>
+                      </div>
+                      <div className="flex justify-between">
                         <span>Protein</span>
-                        <span>High</span>
+                        <span>0,3g</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Fat</span>
-                        <span>Medium-High</span>
+                        <span>Lemak</span>
+                        <span>0,2g</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Carbohydrates</span>
-                        <span>Low</span>
+                        <span>Karbohidrat</span>
+                        <span>14,9g</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Sodium</span>
-                        <span>Medium</span>
+                        <span>Serat</span>
+                        <span>0,5g</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Gula</span>
+                        <span>6g</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Natrium</span>
+                        <span>1mg</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Kolesterol</span>
+                        <span>0mg</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Air</span>
+                        <span>84g</span>
+                      </div>
+                    </div>
+
+                    <div className="border-t pt-4 mt-4">
+                      <h3 className="font-medium mb-2">Vitamin</h3>
+                      <div className="space-y-1 text-sm">
+                        <div className="flex justify-between">
+                          <span>Vitamin B1</span>
+                          <span>0,01mg</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="border-t pt-4 mt-4">
+                      <h3 className="font-medium mb-2">Mineral</h3>
+                      <div className="space-y-1 text-sm">
+                        <div className="flex justify-between">
+                          <span>Kalsium</span>
+                          <span>27mg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Besi</span>
+                          <span>0,6mg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Magnesium</span>
+                          <span>10mg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Fosfor</span>
+                          <span>13mg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Kalium</span>
+                          <span>10mg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Seng</span>
+                          <span>0,1mg</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -201,8 +258,8 @@ export default function ItemDetail() {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-bold mb-2">Cooking Tips</h3>
-                <p className="text-sm text-muted-foreground">For authentic rendang, slow cook for at least 4 hours until the meat is tender and the sauce has thickened and darkened.</p>
+                <h3 className="font-bold mb-2">Tips Memasak</h3>
+                <p className="text-sm text-muted-foreground">Untuk rendang otentik, masak perlahan minimal 4 jam hingga daging empuk dan kuah mengental serta menggelap.</p>
               </CardContent>
             </Card>
           </div>
