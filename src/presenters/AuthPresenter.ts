@@ -2,7 +2,6 @@
 import { AuthModel } from '@/models/AuthModel';
 import { UserModel } from '@/models/UserModel';
 import { User, Login, Register, ApiResponse, ApiError } from '@/types/index';
-import { CookieUtils } from '@/utils/cookieUtils';
 
 export interface AuthView {
   showLoading: (loading: boolean) => void;
@@ -128,15 +127,12 @@ export class AuthPresenter {
     try {
       this.view.showLoading(true);
       const response = await this.model.logout();
-      CookieUtils.clearAuthCookies();
 
       this.view.setUser(null);
 
       this.view.showSuccess(response.message || 'Logout successful');
     } catch (error) {
       const apiError = error as ApiError;
-
-      CookieUtils.clearAuthCookies();
       this.view.setUser(null);
 
       this.view.showSuccess('Logged out successfully');
