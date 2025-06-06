@@ -21,7 +21,7 @@ import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
-import { ItemPresenter } from '@/presenters/ItemPresenter';
+import { ItemPresenter, ItemView } from '@/presenters/ItemPresenter';
 import { Item } from '@/types/index';
 import LoadingItemDetail from '@/app/(home)/item/[id]/loading';
 
@@ -31,19 +31,39 @@ export default function ItemDetail() {
 
   const [food, setFood] = useState<Item | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchItemDetail = async () => {
       try {
-        setIsLoading(true);
-        const itemPresenter = new ItemPresenter();
-        const response = await itemPresenter.getItemById(itemId);
-        setFood(response.data);
+        setError(null);
+
+        // Implement ItemView interface
+        const itemView: ItemView = {
+          showLoading: (loading: boolean) => setIsLoading(loading),
+          showSuccess: (message: string) => {
+            // Could add toast notification here if needed
+            console.log('Success:', message);
+          },
+          showError: (message: string) => {
+            setError(message);
+            console.error('Error:', message);
+          },
+          setItems: () => {
+            // Not used in this component
+          },
+          setItem: (item: Item | null) => setFood(item),
+        };
+
+        const itemPresenter = new ItemPresenter(itemView);
+        const success = await itemPresenter.getItemById(itemId);
+
+        if (!success) {
+          notFound();
+        }
       } catch (err) {
         console.error('Error fetching item:', err);
         notFound();
-      } finally {
-        setIsLoading(false);
       }
     };
 
@@ -65,9 +85,19 @@ export default function ItemDetail() {
       document.title = 'Nutrify';
     };
   }, [food?.name, isLoading]);
-
   if (isLoading) {
     return <LoadingItemDetail />;
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-10 lg:py-20">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Error</h1>
+          <p className="text-muted-foreground">{error}</p>
+        </div>
+      </div>
+    );
   }
 
   if (!food) {

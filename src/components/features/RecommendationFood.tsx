@@ -4,25 +4,42 @@ import Autoplay from 'embla-carousel-autoplay';
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, ItemCard } from '@/components';
 import { Item } from '@/types/index';
-import { ItemPresenter } from '@/presenters/ItemPresenter';
+import { ItemPresenter, ItemView } from '@/presenters/ItemPresenter';
 
 const RecommendationFood = () => {
   const [foods, setFoods] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const itemPresenter = new ItemPresenter();
-        const response = await itemPresenter.getRandomItems();
-        // Since response.data is now Item[], we can use it directly
-        const validFoods = response.data.filter((food) => food && food._id);
-        setFoods(validFoods);
+        setError(null);
+
+        // Implement ItemView interface
+        const itemView: ItemView = {
+          showLoading: (loading: boolean) => setLoading(loading),
+          showSuccess: (message: string) => {
+            console.log('Success:', message);
+          },
+          showError: (message: string) => {
+            setError(message);
+            console.error('Error:', message);
+          },
+          setItems: (items: Item[]) => {
+            const validFoods = items.filter((food) => food && food._id);
+            setFoods(validFoods);
+          },
+          setItem: () => {
+            // Not used in this component
+          },
+        };
+
+        const itemPresenter = new ItemPresenter(itemView);
+        await itemPresenter.getRandomItems();
       } catch (err) {
         setError('Failed to fetch food recommendations');
         console.error(err);
-      } finally {
-        setLoading(false);
       }
     };
 
