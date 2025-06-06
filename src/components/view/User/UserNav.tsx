@@ -37,8 +37,8 @@ export function UserNav({ className }: UserNavProps) {
 
   const authViewInterface: AuthView = {
     showLoading: (loading: boolean) => setIsLoading(loading),
-    showSuccess: (message: string) => toast.success(message),
-    showError: (message: string) => toast.error(message),
+    showSuccess: (message: string) => {}, // Remove success messages for getCurrentUser
+    showError: (message: string) => {},
     navigateToDashboard: () => router.push('/'),
     setFieldErrors: () => {},
     setUser: (user: User | null) => setUser(user),
@@ -46,8 +46,8 @@ export function UserNav({ className }: UserNavProps) {
 
   const userViewInterface: UserView = {
     showLoading: (loading: boolean) => setIsLoading(loading),
-    showSuccess: (message: string) => toast.success(message),
-    showError: (message: string) => toast.error(message),
+    showSuccess: (message: string) => {},
+    showError: (message: string) => {},
     setUser: (user: User | null) => {
       setUser(user);
       setIsAuthenticated(!!user);
