@@ -30,6 +30,7 @@ const SkeletonAvatar = () => (
 
 export const UserUpdateForm: React.FC<UserUpdateFormProps> = ({ onSuccess, showProfilePictureOnly = false }) => {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [profilePicture, setProfilePicture] = useState<string>('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -47,13 +48,13 @@ export const UserUpdateForm: React.FC<UserUpdateFormProps> = ({ onSuccess, showP
 
   const userView: UserView = useMemo(
     () => ({
-      showLoading: (loading: boolean) => setIsInitialLoading(loading),
+      showLoading: (loading: boolean) => setIsSubmitting(loading),
       showSuccess: (msg: string) => {
-        // toast.success(msg);
+        // Don't show toast here, let toast.promise handle it
         if (onSuccess) onSuccess();
       },
       showError: (msg: string) => {
-        toast.error(msg);
+        // Don't show toast here, let toast.promise handle it
       },
       setUser: (userData: UserType | null) => {
         if (userData) {
@@ -162,28 +163,35 @@ export const UserUpdateForm: React.FC<UserUpdateFormProps> = ({ onSuccess, showP
       return;
     }
 
-    // Use toast.promise for better UX
+    setIsSubmitting(true);
     const updatePromise = async () => {
-      if (selectedFile) {
-        // Create FormData with user data including profile picture (excluding name and email)
-        const uploadFormData = new FormData();
-        uploadFormData.append('profilePicture', selectedFile);
-        uploadFormData.append('age', age.toString());
-        uploadFormData.append('height', height.toString());
-        uploadFormData.append('weight', weight.toString());
+      try {
+        if (selectedFile) {
+          // Create FormData with user data including profile picture (excluding name and email)
+          const uploadFormData = new FormData();
+          uploadFormData.append('profilePicture', selectedFile);
+          uploadFormData.append('age', age.toString());
+          uploadFormData.append('height', height.toString());
+          uploadFormData.append('weight', weight.toString());
 
-        // Call presenter to update profile with FormData
-        await presenter.updateUserProfile(uploadFormData);
-        setSelectedFile(null); // Reset selected file after successful upload
-      } else {
-        // Create update data for text-only updates (excluding name and email)
-        const updateData: Partial<UserType> = {
-          age,
-          height,
-          weight,
-        };
+          // Call presenter to update profile with FormData
+          await presenter.updateUserProfileWithThrow(uploadFormData);
+          setSelectedFile(null); // Reset selected file after successful upload
+        } else {
+          // Create update data for text-only updates (excluding name and email)
+          const updateData: Partial<UserType> = {
+            age,
+            height,
+            weight,
+          };
 
-        await presenter.updateUserProfile(updateData);
+          await presenter.updateUserProfileWithThrow(updateData);
+        }
+      } catch (error) {
+        console.error('Update failed:', error);
+        throw error; // Re-throw to ensure promise rejects
+      } finally {
+        setIsSubmitting(false);
       }
     };
 
@@ -245,8 +253,8 @@ export const UserUpdateForm: React.FC<UserUpdateFormProps> = ({ onSuccess, showP
               <p className="text-sm text-blue-700 font-medium">Foto baru siap diupload</p>
               <p className="text-xs text-blue-600">{selectedFile.name}</p>
             </div>
-            <Button onClick={handleSubmit} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-sm">
-              Update Foto Profil
+            <Button onClick={handleSubmit} disabled={isSubmitting} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 text-sm disabled:opacity-50">
+              {isSubmitting ? 'Mengupload...' : 'Update Foto Profil'}
             </Button>
           </div>
         )}
@@ -361,9 +369,9 @@ export const UserUpdateForm: React.FC<UserUpdateFormProps> = ({ onSuccess, showP
 
       {/* Save Button */}
       <div className="flex justify-end pt-6">
-        <Button type="submit" className="  px-6 py-2 flex items-center gap-2">
+        <Button type="submit" disabled={isSubmitting} className="px-6 py-2 flex items-center gap-2 disabled:opacity-50">
           <Save className="h-4 w-4" />
-          Simpan Perubahan
+          {isSubmitting ? 'Menyimpan...' : 'Simpan Perubahan'}
         </Button>
       </div>
     </form>

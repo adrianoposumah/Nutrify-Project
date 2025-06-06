@@ -112,6 +112,53 @@ export class UserPresenter {
       this.view.showLoading(false);
     }
   }
+
+  // Alternative method that throws errors instead of returning boolean - better for toast.promise
+  async updateUserProfileWithThrow(data: Partial<User> | FormData): Promise<User> {
+    this.view.showLoading(true);
+
+    try {
+      let formData: FormData;
+
+      if (data instanceof FormData) {
+        // If data is already FormData (e.g., with file upload), validate it
+        const errors = this.validateFormData(data);
+        if (errors.length > 0) {
+          throw new Error(errors.join(', '));
+        }
+        formData = data;
+      } else {
+        // If data is Partial<User>, validate and convert to FormData
+        const errors = this.validateProfileUpdate(data);
+        if (errors.length > 0) {
+          throw new Error(errors.join(', '));
+        }
+
+        formData = new FormData();
+        Object.entries(data).forEach(([key, value]) => {
+          if (value !== undefined) {
+            formData.append(key, value.toString());
+          }
+        });
+      }
+
+      const updatedUser = await this.model.updateUserProfile(formData);
+      this.view.setUser(updatedUser);
+
+      // Refresh user data to get the latest information
+      if (this.view.refreshUserData) {
+        await this.view.refreshUserData();
+      }
+
+      return updatedUser;
+    } catch (error) {
+      const apiError = error as ApiError;
+      throw new Error(apiError.message || 'Failed to update profile');
+    } finally {
+      this.view.showLoading(false);
+    }
+  }
+
   private validateProfileUpdate(data: Partial<User>): string[] {
     const errors: string[] = [];
 
