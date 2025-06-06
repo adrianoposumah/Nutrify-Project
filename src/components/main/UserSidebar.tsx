@@ -12,7 +12,7 @@ const navigationItems = [
   },
   {
     title: 'Tambah Makanan',
-    url: '/users/addfood',
+    url: '/users/additem',
     icon: Plus,
   },
   {

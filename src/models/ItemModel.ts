@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Item, Ingredient, DiseaseRate, ItemResponse, ItemListResponse, ApiResponse } from '@/types/index';
+import { Item, CreateItemRequest, Ingredient, DiseaseRate, ItemResponse, ItemListResponse, ApiResponse, IngredientListResponse } from '@/types/index';
 import { apiClient } from '@/lib/apiClient';
 
 export class ItemModel {
@@ -46,9 +46,27 @@ export class ItemModel {
       throw error;
     }
   }
-  async createItem(item: Item): Promise<ItemResponse> {
+  async createItem(item: CreateItemRequest): Promise<ItemResponse> {
     try {
-      const response = await apiClient.post<ItemResponse>(`/items/`, item);
+      const response = await apiClient.post<ItemResponse>(`/items`, item);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getAllIngredients(): Promise<IngredientListResponse> {
+    try {
+      const response = await apiClient.get<IngredientListResponse>(`/display-ingredients`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async searchIngredients(search: string): Promise<IngredientListResponse> {
+    try {
+      const response = await apiClient.get<IngredientListResponse>(`/display-ingredients?search=${encodeURIComponent(search)}`);
       return response;
     } catch (error) {
       throw error;
