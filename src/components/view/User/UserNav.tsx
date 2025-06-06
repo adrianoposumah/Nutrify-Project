@@ -12,7 +12,6 @@ import { Bell, Settings, User as UserIcon, LogOut } from 'lucide-react';
 import { AuthPresenter, AuthView } from '@/presenters/AuthPresenter';
 import { UserPresenter, UserView } from '@/presenters/UserPresenter';
 import { User } from '@/types/index';
-import toast from 'react-hot-toast';
 
 interface UserNavProps {
   className?: string;
@@ -82,25 +81,17 @@ export function UserNav({ className }: UserNavProps) {
   }, [authPresenter, userPresenter]);
   const handleSignOut = async () => {
     try {
-      // Clear the jwt cookie (the main authentication token)
       document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
 
-      // Call the logout endpoint
       await authPresenter.logout();
 
-      // Reset application state
       setUser(null);
       setIsAuthenticated(false);
 
-      // Small delay to ensure state updates
       await new Promise((resolve) => setTimeout(resolve, 500));
 
-      // Redirect to home page
       window.location.href = '/';
     } catch (error) {
-      console.error('Logout failed:', error);
-
-      // Even if logout endpoint fails, still clear the jwt cookie
       document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
 
       setUser(null);

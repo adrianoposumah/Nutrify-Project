@@ -27,5 +27,7 @@ export interface Register {
 }
 
 export interface AuthResponse {
+  status: string;
+  message: string;
   accessToken: string;
 }

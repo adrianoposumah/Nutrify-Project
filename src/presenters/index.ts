@@ -6,3 +6,5 @@ export type { AuthView } from './AuthPresenter';
 
 export { UserPresenter } from './UserPresenter';
 export type { UserView } from './UserPresenter';
+
+export { ItemPresenter } from './ItemPresenter';
