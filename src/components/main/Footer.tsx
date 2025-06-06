@@ -1,11 +1,45 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { ChevronRight } from "lucide-react";
+'use client';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ChevronRight, WifiOff } from 'lucide-react';
 
-import { Button, Input } from "@/components";
+import { Button, Input } from '@/components';
 
 const Footer = () => {
+  const [isOnline, setIsOnline] = useState(true);
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    const updateOnlineStatus = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    // Set initial status
+    updateOnlineStatus();
+
+    // Listen for online/offline events
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    return () => {
+      window.removeEventListener('online', updateOnlineStatus);
+      window.removeEventListener('offline', updateOnlineStatus);
+    };
+  }, []);
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!isOnline) {
+      alert('You are offline. Please try again when you have an internet connection.');
+      return;
+    }
+
+    // Handle email submission logic here
+    console.log('Email submitted:', email);
+    setEmail('');
+  };
   return (
     <footer className="bg-secondary-background text-white">
       <div className="container mx-auto px-4 py-10">
@@ -31,7 +65,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
           <div className="col-span-1 justify-self-start md:justify-self-center">
             <h4 className="font-medium mb-4 border-b border-gray-700 text-white pb-2">Quick Links</h4>
             <ul className="space-y-3">
@@ -60,17 +93,32 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
+          </div>{' '}
           <div className="col-span-1 md:col-span-2 lg:col-span-2 justify-self-start lg:justify-self-end">
             <h4 className="font-medium mb-4 border-b border-gray-700 pb-2 text-white">Hubungi Kami</h4>
             <p className="text-gray-300 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, odit!</p>
-            <div className="flex mt-5 max-w-md">
-              <Input placeholder="Email.." className="shadow-none border-none rounded-r-none h-10 focus-visible:ring-offset-0 focus-visible:ring-0 bg-white" />
-              <Button type="submit" className="ml-[-7] h-10 w-25">
+
+            {!isOnline && (
+              <div className="flex items-center text-yellow-400 mb-3 text-sm">
+                <WifiOff className="h-4 w-4 mr-2" />
+                <span>You are offline. Email subscription unavailable.</span>
+              </div>
+            )}
+
+            <form onSubmit={handleEmailSubmit} className="flex mt-5 max-w-md">
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email.."
+                className="shadow-none border-none rounded-r-none h-10 focus-visible:ring-offset-0 focus-visible:ring-0 bg-white"
+                disabled={!isOnline}
+                required
+              />
+              <Button type="submit" className="ml-[-7] h-10 w-25" disabled={!isOnline || !email.trim()}>
                 Kirim
               </Button>
-            </div>
+            </form>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-10 pt-6 text-center">

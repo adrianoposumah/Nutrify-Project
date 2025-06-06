@@ -34,11 +34,16 @@ const RecommendationFood = () => {
             // Not used in this component
           },
         };
-
         const itemPresenter = new ItemPresenter(itemView);
-        await itemPresenter.getRandomItems();
+        const success = await itemPresenter.getRandomItems();
+
+        // If failed and we're offline, show appropriate message
+        if (!success && !navigator.onLine) {
+          setError('You are offline. Showing cached data if available.');
+        }
       } catch (err) {
-        setError('Failed to fetch food recommendations');
+        const errorMessage = !navigator.onLine ? 'You are offline. Some features may not be available.' : 'Failed to fetch food recommendations';
+        setError(errorMessage);
         console.error(err);
       }
     };

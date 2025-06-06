@@ -2,6 +2,8 @@ import { Poppins, Work_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 
 import { Toaster } from 'react-hot-toast';
+import ServiceWorkerRegistration from '@/components/features/ServiceWorkerRegistration';
+import OfflineStatus from '@/components/features/OfflineStatus';
 
 import './globals.css';
 
@@ -25,6 +27,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} ${workSans.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ServiceWorkerRegistration />
+          <OfflineStatus />
           <Toaster position="top-right" reverseOrder={false} />
           {children}
         </ThemeProvider>
