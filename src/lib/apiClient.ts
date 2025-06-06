@@ -12,6 +12,48 @@ class ApiClient {
         'Content-Type': 'application/json',
       },
     });
+
+    this.client.interceptors.request.use(
+      (config) => {
+        const token = this.getTokenFromCookie();
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
+
+    this.client.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        if (error.response?.status === 401) {
+          this.clearTokenCookie();
+        }
+        return Promise.reject(error);
+      }
+    );
+  }
+
+  private getTokenFromCookie(): string | null {
+    if (typeof document === 'undefined') return null;
+
+    const cookies = document.cookie.split(';');
+    for (const cookie of cookies) {
+      const [name, value] = cookie.trim().split('=');
+      if (name === 'jwt') {
+        return value;
+      }
+    }
+    return null;
+  }
+
+  private clearTokenCookie(): void {
+    if (typeof document !== 'undefined') {
+      document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+    }
   }
 
   async get<T>(url: string, config?: any): Promise<T> {

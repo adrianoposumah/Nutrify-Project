@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import type React from 'react';
@@ -8,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { AuthPresenter, AuthView } from '@/presenters/index';
+// import { User } from '@/types/index';
 
 export function LoginForm() {
   const [formData, setFormData] = useState({
@@ -23,10 +25,7 @@ export function LoginForm() {
     showError: (message: string) => toast.error(message),
     navigateToUserProfile: (formattedName: string) => router.push(`/users/${formattedName}`),
     setFieldErrors: (errors: string[]) => setFieldErrors(errors),
-    setUser: (user) => {
-      // Handle user data after successful login
-      console.log('User logged in:', user);
-    },
+    setUser: (user) => {},
   };
 
   const [presenter] = useState(() => new AuthPresenter(viewInterface));
