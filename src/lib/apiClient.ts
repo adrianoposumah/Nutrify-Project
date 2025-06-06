@@ -6,16 +6,14 @@ class ApiClient {
 
   constructor() {
     this.client = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api',
-      timeout: 10000,
-      withCredentials: true, // Important for cookies
+      baseURL: process.env.NEXT_PUBLIC_API_URL,
+      withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
       },
     });
   }
 
-  // HTTP Methods
   async get<T>(url: string, config?: any): Promise<T> {
     const response = await this.client.get(url, config);
     return response.data;
