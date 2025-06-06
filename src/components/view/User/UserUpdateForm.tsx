@@ -194,10 +194,16 @@ export const UserUpdateForm: React.FC<UserUpdateFormProps> = ({ onSuccess, showP
         setIsSubmitting(false);
       }
     };
-
     toast.promise(updatePromise(), {
       loading: showProfilePictureOnly ? 'Mengupload foto profil...' : 'Menyimpan perubahan...',
-      success: showProfilePictureOnly ? 'Foto profil berhasil diperbarui!' : 'Profil berhasil diperbarui!',
+      success: () => {
+        // Refresh the page after successful update
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000); // Small delay to let the user see the success message
+
+        return showProfilePictureOnly ? 'Foto profil berhasil diperbarui!' : 'Profil berhasil diperbarui!';
+      },
       error: (err) => {
         console.error('Update failed:', err);
         return showProfilePictureOnly ? 'Gagal mengupload foto profil' : 'Gagal menyimpan perubahan';

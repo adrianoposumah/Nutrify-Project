@@ -21,36 +21,59 @@ import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
-import { ItemPresenter } from '@/presenters/ItemPresenter';
+import { ItemPresenter, ItemView } from '@/presenters/ItemPresenter';
 import { Item } from '@/types/index';
 import LoadingItemDetail from '@/app/(home)/item/[id]/loading';
+import { decodeItemNameFromUrl } from '@/utils/urlFormatter';
 
 export default function ItemDetail() {
   const params = useParams();
   const itemId = typeof params.id === 'string' ? params.id : '';
 
+  // Use the URL formatter utility for consistency
+  const itemName = decodeItemNameFromUrl(itemId);
+
   const [food, setFood] = useState<Item | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchItemDetail = async () => {
       try {
-        setIsLoading(true);
-        const itemPresenter = new ItemPresenter();
-        const response = await itemPresenter.getItemById(itemId);
-        setFood(response.data);
+        setError(null);
+
+        // Implement ItemView interface
+        const itemView: ItemView = {
+          showLoading: (loading: boolean) => setIsLoading(loading),
+          showSuccess: (message: string) => {
+            // Could add toast notification here if needed
+            console.log('Success:', message);
+          },
+          showError: (message: string) => {
+            setError(message);
+            console.error('Error:', message);
+          },
+          setItems: () => {
+            // Not used in this component
+          },
+          setItem: (item: Item | null) => setFood(item),
+        };
+        const itemPresenter = new ItemPresenter(itemView);
+        const success = await itemPresenter.getItemByName(itemName);
+
+        if (!success) {
+          notFound();
+        }
       } catch (err) {
         console.error('Error fetching item:', err);
         notFound();
-      } finally {
-        setIsLoading(false);
       }
     };
 
-    if (itemId) {
+    if (itemName) {
       fetchItemDetail();
     }
-  }, [itemId]);
+  }, [itemName]);
 
   // Set document title based on food name
   useEffect(() => {
@@ -65,9 +88,19 @@ export default function ItemDetail() {
       document.title = 'Nutrify';
     };
   }, [food?.name, isLoading]);
-
   if (isLoading) {
     return <LoadingItemDetail />;
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-10 lg:py-20">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Error</h1>
+          <p className="text-muted-foreground">{error}</p>
+        </div>
+      </div>
+    );
   }
 
   if (!food) {
@@ -167,88 +200,85 @@ export default function ItemDetail() {
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Kategori</span>
                     <span className="text-muted-foreground capitalize">{food.category}</span>
-                  </div>
-
+                  </div>{' '}
                   <div className="border-t pt-4">
                     <div className="text-sm text-muted-foreground mb-2">Informasi nutrisi per 100g sajian.</div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span>Kalori</span>
-                        <span>61 kkal</span>
+                    {food.nutrition_total ? (
+                      <div className="space-y-2">
+                        <div className="flex justify-between">
+                          <span>Kalori</span>
+                          <span>{food.nutrition_total.calories} kkal</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Protein</span>
+                          <span>{food.nutrition_total.protein}g</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Lemak</span>
+                          <span>{food.nutrition_total.fat}g</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Karbohidrat</span>
+                          <span>{food.nutrition_total.carbohydrates}g</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Serat</span>
+                          <span>{food.nutrition_total.fiber}g</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Gula</span>
+                          <span>{food.nutrition_total.sugar}g</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Natrium</span>
+                          <span>{food.nutrition_total.sodium}mg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Kolesterol</span>
+                          <span>{food.nutrition_total.cholesterol}mg</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Air</span>
+                          <span>{food.nutrition_total.water}g</span>
+                        </div>
                       </div>
-                      <div className="flex justify-between">
-                        <span>Protein</span>
-                        <span>0,3g</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Lemak</span>
-                        <span>0,2g</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Karbohidrat</span>
-                        <span>14,9g</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Serat</span>
-                        <span>0,5g</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Gula</span>
-                        <span>6g</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Natrium</span>
-                        <span>1mg</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Kolesterol</span>
-                        <span>0mg</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Air</span>
-                        <span>84g</span>
-                      </div>
-                    </div>
+                    ) : (
+                      <div className="text-muted-foreground">Informasi nutrisi tidak tersedia.</div>
+                    )}
 
-                    <div className="border-t pt-4 mt-4">
-                      <h3 className="font-medium mb-2">Vitamin</h3>
-                      <div className="space-y-1 text-sm">
-                        <div className="flex justify-between">
-                          <span>Vitamin B1</span>
-                          <span>0,01mg</span>
+                    {food.nutrition_total?.vitamins && (
+                      <div className="border-t pt-4 mt-4">
+                        <h3 className="font-medium mb-2">Vitamin</h3>
+                        <div className="space-y-1 text-sm">
+                          {Object.entries(food.nutrition_total.vitamins).map(
+                            ([key, value]) =>
+                              value > 0 && (
+                                <div key={key} className="flex justify-between">
+                                  <span>{formatVitaminName(key)}</span>
+                                  <span>{formatVitaminValue(key, value)}</span>
+                                </div>
+                              )
+                          )}
                         </div>
                       </div>
-                    </div>
+                    )}
 
-                    <div className="border-t pt-4 mt-4">
-                      <h3 className="font-medium mb-2">Mineral</h3>
-                      <div className="space-y-1 text-sm">
-                        <div className="flex justify-between">
-                          <span>Kalsium</span>
-                          <span>27mg</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Besi</span>
-                          <span>0,6mg</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Magnesium</span>
-                          <span>10mg</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Fosfor</span>
-                          <span>13mg</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Kalium</span>
-                          <span>10mg</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Seng</span>
-                          <span>0,1mg</span>
+                    {food.nutrition_total?.minerals && (
+                      <div className="border-t pt-4 mt-4">
+                        <h3 className="font-medium mb-2">Mineral</h3>
+                        <div className="space-y-1 text-sm">
+                          {Object.entries(food.nutrition_total.minerals).map(
+                            ([key, value]) =>
+                              value > 0 && (
+                                <div key={key} className="flex justify-between">
+                                  <span>{formatMineralName(key)}</span>
+                                  <span>{value}mg</span>
+                                </div>
+                              )
+                          )}
                         </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </CardContent>
@@ -264,11 +294,52 @@ export default function ItemDetail() {
   );
 }
 
+function formatVitaminName(key: string): string {
+  const vitaminNames: Record<string, string> = {
+    vitamin_A: 'Vitamin A',
+    vitamin_B1: 'Vitamin B1',
+    vitamin_B2: 'Vitamin B2',
+    vitamin_B3: 'Vitamin B3',
+    vitamin_B5: 'Vitamin B5',
+    vitamin_B6: 'Vitamin B6',
+    vitamin_B9: 'Vitamin B9',
+    vitamin_B12: 'Vitamin B12',
+    vitamin_C: 'Vitamin C',
+    vitamin_D: 'Vitamin D',
+    vitamin_E: 'Vitamin E',
+    vitamin_K: 'Vitamin K',
+  };
+  return vitaminNames[key] || key;
+}
+
+function formatVitaminValue(key: string, value: number): string {
+  // Some vitamins are measured in different units
+  const microGramVitamins = ['vitamin_B9', 'vitamin_B12', 'vitamin_D', 'vitamin_K'];
+
+  if (microGramVitamins.includes(key)) {
+    return `${value}μg`;
+  }
+  return `${value}mg`;
+}
+
+function formatMineralName(key: string): string {
+  const mineralNames: Record<string, string> = {
+    calcium: 'Kalsium',
+    iron: 'Besi',
+    magnesium: 'Magnesium',
+    phosphorus: 'Fosfor',
+    potassium: 'Kalium',
+    zinc: 'Seng',
+  };
+  return mineralNames[key] || key;
+}
+
 function getStatusBadgeVariant(status: string): 'default' | 'destructive' | 'outline' | 'secondary' | 'success' {
   switch (status.toUpperCase()) {
     case 'CAUTION':
     case 'HIGH RISK':
     case 'WASPADA':
+    case 'ALERT':
       return 'destructive';
     case 'MODERATE CONSUMPTION':
     case 'KONSUMSI WAJAR':

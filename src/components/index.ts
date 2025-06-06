@@ -30,3 +30,5 @@ export { LoginForm } from './view/Auth/LoginForm';
 export { RegisterForm } from './view/Auth/RegisterForm';
 export { UserCard } from './view/User/UserCard';
 export { UserNav } from './view/User/UserNav';
+export { default as ShowItem } from './view/Item/ShowItem';
+export { default as ItemForm } from './view/Item/ItemForm';

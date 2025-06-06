@@ -8,3 +8,4 @@ export { UserPresenter } from './UserPresenter';
 export type { UserView } from './UserPresenter';
 
 export { ItemPresenter } from './ItemPresenter';
+export type { ItemView } from './ItemPresenter';
