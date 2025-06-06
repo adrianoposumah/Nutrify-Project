@@ -37,21 +37,23 @@ export class ItemPresenter {
     }
   }
 
-  async getItemById(id: string): Promise<boolean> {
+  async getItemByName(name: string): Promise<boolean> {
     try {
-      if (!id || id.trim() === '') {
-        this.view.showError('Item ID is required');
+      if (!name || name.trim() === '') {
+        this.view.showError('Item name is required');
         return false;
       }
 
       this.view.showLoading(true);
-      const response = await this.itemModel.getItemById(id);
+      // Convert to lowercase and replace spaces with %20 for URL encoding
+      const formattedName = name.toLowerCase().replace(/ /g, '%20');
+      const response = await this.itemModel.getItemByName(formattedName);
       this.view.setItem(response.data);
       return true;
     } catch (error) {
       const apiError = error as ApiError;
-      this.view.showError(apiError.message || `Failed to fetch item with ID ${id}`);
-      console.error(`Error fetching item with ID ${id}:`, error);
+      this.view.showError(apiError.message || `Failed to fetch item with name ${name}`);
+      console.error(`Error fetching item with name ${name}:`, error);
       this.view.setItem(null);
       return false;
     } finally {

@@ -11,9 +11,18 @@ export class ItemModel {
       throw error;
     }
   }
+  async getItemByName(name: string): Promise<ItemResponse> {
+    try {
+      const response = await apiClient.get<ItemResponse>(`/items/${name}`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getItemById(id: string): Promise<ItemResponse> {
     try {
-      const response = await apiClient.get<ItemResponse>(`/items/${id}`);
+      const response = await apiClient.get<ItemResponse>(`/items/id/${id}`);
       return response;
     } catch (error) {
       throw error;

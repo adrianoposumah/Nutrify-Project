@@ -80,7 +80,7 @@ const RecommendationFood = () => {
         <CarouselContent className="-ml-2 md:-ml-4">
           {foods.map((food) => (
             <CarouselItem key={food._id} className="pl-4 md:basis-1/2 lg:basis-1/4 text-left">
-              <ItemCard id={food._id} image={food.image} name={food.name} nation={food.nation} />
+              <ItemCard image={food.image} name={food.name} nation={food.nation} />
             </CarouselItem>
           ))}
         </CarouselContent>

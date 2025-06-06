@@ -24,10 +24,14 @@ import { MapPin } from 'lucide-react';
 import { ItemPresenter, ItemView } from '@/presenters/ItemPresenter';
 import { Item } from '@/types/index';
 import LoadingItemDetail from '@/app/(home)/item/[id]/loading';
+import { decodeItemNameFromUrl } from '@/utils/urlFormatter';
 
 export default function ItemDetail() {
   const params = useParams();
   const itemId = typeof params.id === 'string' ? params.id : '';
+
+  // Use the URL formatter utility for consistency
+  const itemName = decodeItemNameFromUrl(itemId);
 
   const [food, setFood] = useState<Item | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -54,9 +58,8 @@ export default function ItemDetail() {
           },
           setItem: (item: Item | null) => setFood(item),
         };
-
         const itemPresenter = new ItemPresenter(itemView);
-        const success = await itemPresenter.getItemById(itemId);
+        const success = await itemPresenter.getItemByName(itemName);
 
         if (!success) {
           notFound();
@@ -67,10 +70,10 @@ export default function ItemDetail() {
       }
     };
 
-    if (itemId) {
+    if (itemName) {
       fetchItemDetail();
     }
-  }, [itemId]);
+  }, [itemName]);
 
   // Set document title based on food name
   useEffect(() => {

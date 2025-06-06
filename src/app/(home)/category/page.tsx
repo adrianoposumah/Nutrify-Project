@@ -8,6 +8,7 @@ import { Search, Filter, MapPin, Utensils } from 'lucide-react';
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Input, Button, Badge, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components';
 
 import foodData from '@/server/data.json';
+import { formatItemNameForUrl } from '@/utils/urlFormatter';
 
 export default function CategoryPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -151,11 +152,8 @@ export default function CategoryPage() {
                       </p>
                     )}
                   </div>
-
-                  <p className="text-sm line-clamp-2 leading-relaxed">{food.description}</p>
-
-                  {/* View Details Button */}
-                  <Link href={`/item/${encodeURIComponent(food.name.toLowerCase())}`} className="block">
+                  <p className="text-sm line-clamp-2 leading-relaxed">{food.description}</p> {/* View Details Button */}
+                  <Link href={`/item/${formatItemNameForUrl(food.name)}`} className="block">
                     <Button className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white border-0 rounded-lg h-11 font-medium transition-all duration-200 transform hover:scale-105">
                       View Details
                     </Button>
