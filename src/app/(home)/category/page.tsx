@@ -5,12 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Search, Filter, MapPin, Utensils } from 'lucide-react';
 
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from '@/components/ui/breadcrumb';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Input, Button, Badge, Card, CardContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components';
 
 import foodData from '@/server/data.json';
 

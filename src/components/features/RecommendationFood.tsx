@@ -3,18 +3,21 @@ import React, { useEffect, useState } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, ItemCard } from '@/components';
-import { Food, getFoodRecommendations } from '@/server/api';
+import { Item } from '@/types/index';
+import { ItemPresenter } from '@/presenters/ItemPresenter';
 
 const RecommendationFood = () => {
-  const [foods, setFoods] = useState<Food[]>([]);
+  const [foods, setFoods] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const data = await getFoodRecommendations();
-        setFoods(data);
+        const itemPresenter = new ItemPresenter();
+        const response = await itemPresenter.getRandomItems();
+        // Since response.data is now Item[], we can use it directly
+        const validFoods = response.data.filter((food) => food && food._id);
+        setFoods(validFoods);
       } catch (err) {
         setError('Failed to fetch food recommendations');
         console.error(err);
@@ -56,10 +59,11 @@ const RecommendationFood = () => {
         ]}
         className="w-full mt-4"
       >
+        {' '}
         <CarouselContent className="-ml-2 md:-ml-4">
           {foods.map((food) => (
-            <CarouselItem key={food.id} className="pl-4 md:basis-1/2 lg:basis-1/4 text-left">
-              <ItemCard id={food.id.toString()} image={food.image} name={food.name} nation={food.nation} />
+            <CarouselItem key={food._id} className="pl-4 md:basis-1/2 lg:basis-1/4 text-left">
+              <ItemCard id={food._id} image={food.image} name={food.name} nation={food.nation} />
             </CarouselItem>
           ))}
         </CarouselContent>

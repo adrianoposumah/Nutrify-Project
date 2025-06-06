@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Button, SigninView } from '@/components';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Button, LoginForm } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Masuk',
@@ -22,7 +22,7 @@ export default function SignIn() {
           </CardDescription>
         </CardHeader>{' '}
         <CardContent>
-          <SigninView />
+          <LoginForm />
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
           <div className="flex flex-col justify-between items-center w-full">

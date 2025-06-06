@@ -3,77 +3,53 @@
 import type React from 'react';
 import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { SignupPresenter, SignupViewInterface } from '@/presenters/index';
+import { AuthPresenter, AuthView } from '@/presenters/index';
 
-export function SignupView() {
+export function LoginForm() {
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     password: '',
-    confirmPassword: '',
   });
   const [isLoading, setIsLoading] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<string[]>([]);
   const router = useRouter();
-
-  // Create presenter instance with view interface implementation
-  const viewInterface: SignupViewInterface = {
+  const viewInterface: AuthView = {
     showLoading: (loading: boolean) => setIsLoading(loading),
     showSuccess: (message: string) => toast.success(message),
     showError: (message: string) => toast.error(message),
-    navigateToSignin: () => router.push('/signin'),
+    navigateToUserProfile: (formattedName: string) => router.push(`/users/${formattedName}`),
     setFieldErrors: (errors: string[]) => setFieldErrors(errors),
+    setUser: (user) => {
+      // Handle user data after successful login
+      console.log('User logged in:', user);
+    },
   };
 
-  const [presenter] = useState(() => new SignupPresenter(viewInterface));
+  const [presenter] = useState(() => new AuthPresenter(viewInterface));
 
   const handleInputChange = useCallback(
     (field: string, value: string) => {
       setFormData((prev) => ({ ...prev, [field]: value }));
 
-      // Clear field errors when user starts typing
       if (fieldErrors.length > 0) {
         setFieldErrors([]);
       }
     },
     [fieldErrors.length]
   );
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await presenter.handleSignup(formData);
+    await presenter.login(formData);
   };
 
   return (
     <>
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          duration: 4000,
-        }}
-      />
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
         <div className="space-y-4">
-          <div>
-            <Label htmlFor="name">Nama</Label>
-            <Input
-              id="name"
-              name="name"
-              type="text"
-              autoComplete="name"
-              required
-              value={formData.name}
-              onChange={(e) => handleInputChange('name', e.target.value)}
-              className="mt-1"
-              placeholder="Masukkan nama anda disini"
-              disabled={isLoading}
-            />
-          </div>
-
           <div>
             <Label htmlFor="email">Email</Label>
             <Input
@@ -96,28 +72,12 @@ export function SignupView() {
               id="password"
               name="password"
               type="password"
-              autoComplete="new-password"
+              autoComplete="current-password"
               required
               value={formData.password}
               onChange={(e) => handleInputChange('password', e.target.value)}
               className="mt-1"
               placeholder="Masukkan password anda disini"
-              disabled={isLoading}
-            />
-          </div>
-
-          <div>
-            <Label htmlFor="confirmPassword">Konfirmasi Password</Label>
-            <Input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              autoComplete="new-password"
-              required
-              value={formData.confirmPassword}
-              onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-              className="mt-1"
-              placeholder="Masukkan password yang sama anda disini"
               disabled={isLoading}
             />
           </div>
@@ -134,7 +94,7 @@ export function SignupView() {
         )}
 
         <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? 'Membuat akun...' : 'Daftar'}
+          {isLoading ? 'Masuk...' : 'Masuk'}
         </Button>
       </form>
     </>
