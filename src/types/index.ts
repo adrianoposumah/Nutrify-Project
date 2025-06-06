@@ -8,4 +8,4 @@ export type { ApiResponse, ApiError } from './api';
 export type { AdminUser, Pagination, UserListResponse, GetUsersParams, ChangeRoleRequest, AdminMessageResponse } from './admin';
 
 // Item types
-export type { Item, Ingredient, DiseaseRate, ItemResponse, ItemListResponse } from './item';
+export type { Item, Ingredient, DiseaseRate, ItemResponse, ItemListResponse, NutritionTotal, Vitamins, Minerals } from './item';

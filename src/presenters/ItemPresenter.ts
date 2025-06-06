@@ -20,12 +20,11 @@ export class ItemPresenter {
     this.itemModel = new ItemModel();
     this.view = view;
   }
-
   async getAllItems(): Promise<boolean> {
     try {
       this.view.showLoading(true);
-      const response = await this.itemModel.getItem();
-      this.view.setItems(response.data ? [response.data] : []);
+      const response = await this.itemModel.getAllItems();
+      this.view.setItems(response.data || []);
       return true;
     } catch (error) {
       const apiError = error as ApiError;

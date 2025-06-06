@@ -3,6 +3,15 @@ import { Item, Ingredient, DiseaseRate, ItemResponse, ItemListResponse, ApiRespo
 import { apiClient } from '@/lib/apiClient';
 
 export class ItemModel {
+  async getAllItems(): Promise<ItemListResponse> {
+    try {
+      const response = await apiClient.get<ItemListResponse>(`/items`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getItem(): Promise<ItemResponse> {
     try {
       const response = await apiClient.get<ItemResponse>(`/items/`);
