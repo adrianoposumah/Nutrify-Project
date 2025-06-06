@@ -1,6 +1,21 @@
 'use client';
 
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage, Accordion, AccordionItem, AccordionTrigger, AccordionContent, Badge, Card, CardContent } from '@/components/index';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  Badge,
+  Card,
+  CardContent,
+  RecommendationFood,
+} from '@/components/index';
 import { useEffect, useState } from 'react';
 import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -9,23 +24,6 @@ import { MapPin } from 'lucide-react';
 import { ItemPresenter } from '@/presenters/ItemPresenter';
 import { Item } from '@/types/index';
 import LoadingItemDetail from '@/app/(home)/item/[id]/loading';
-
-// Komponen rekomendasi makanan (dummy)
-const RecommendationFood = () => (
-  <div className="mt-8">
-    <h2 className="text-2xl font-bold mb-4">Rekomendasi Makanan</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {[1, 2, 3, 4].map((item) => (
-        <Card key={item} className="overflow-hidden">
-          <div className="h-48 bg-muted"></div>
-          <CardContent className="p-4">
-            <h3 className="font-medium">Makanan Serupa {item}</h3>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </div>
-);
 
 export default function ItemDetail() {
   const params = useParams();
@@ -253,13 +251,6 @@ export default function ItemDetail() {
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-bold mb-2">Tips Memasak</h3>
-                <p className="text-sm text-muted-foreground">Untuk rendang otentik, masak perlahan minimal 4 jam hingga daging empuk dan kuah mengental serta menggelap.</p>
               </CardContent>
             </Card>
           </div>
