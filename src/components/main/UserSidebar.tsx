@@ -16,8 +16,8 @@ const navigationItems = [
     icon: Plus,
   },
   {
-    title: 'Review Makanan',
-    url: '/users/review',
+    title: 'Request Makanan',
+    url: '/users/request',
     icon: BookOpenCheck,
   },
   {

@@ -1,6 +1,12 @@
 import type React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components';
 import { UserUpdateForm } from '@/components/view/User/UserUpdateForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Pengaturan | Nutrify',
+  description: 'Halaman pengaturan akun pengguna.',
+};
 
 export default function SettingsPage() {
   return (
