@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { Button, Input, RecommendationFood, BackgroundProvider } from '@/components';
+import { RecommendationFood, BackgroundProvider } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Home | Nutrify',
@@ -22,12 +22,6 @@ export default function Home() {
               Temukan informasi nutrisi, tips sehat, dan inspirasi <br />
               gaya hidup mulai dari apa yang kamu makan.
             </p>
-            <div className="flex mt-10 max-w-md">
-              <Input placeholder="Cari Makanan atau Minuman..." className="shadow-none border-none rounded-r-none h-13 focus-visible:ring-offset-0 focus-visible:ring-0 bg-white" />
-              <Button type="submit" className="rounded-l-none h-13 w-25">
-                Explore
-              </Button>
-            </div>
           </div>
         </div>
       </section>
