@@ -104,8 +104,7 @@ export class ItemModel {
     } catch (error) {
       throw error;
     }
-  }
-  // New offline support methods
+  } // New offline support methods
   private async getOfflineRandomItems(): Promise<ItemListResponse> {
     try {
       // Try to get data from localStorage
@@ -116,7 +115,8 @@ export class ItemModel {
         const now = Date.now();
         if (now - parsed.timestamp < 24 * 60 * 60 * 1000) {
           return {
-            success: true,
+            status: 'success',
+            message: 'Retrieved cached random items',
             data: parsed.data,
           };
         }
@@ -127,7 +127,8 @@ export class ItemModel {
 
     // Return empty response as last resort
     return {
-      success: false,
+      status: 'error',
+      message: 'No cached data available',
       data: [],
     };
   }
