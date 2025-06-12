@@ -97,8 +97,15 @@ export interface ItemResponse {
 }
 
 export interface ItemListResponse {
-  success: boolean;
+  status: string;
+  message: string;
   data: Item[];
+  pagination?: {
+    currentPage: number;
+    totalPages: number;
+    totalItems: number;
+    limit: number;
+  };
 }
 
 export interface IngredientSearchResult {

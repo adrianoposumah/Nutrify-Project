@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Bell, Settings, User as UserIcon, LogOut } from 'lucide-react';
+import { Bell, Settings, User as UserIcon, LogOut, Plus, Book } from 'lucide-react';
 import { AuthPresenter, AuthView } from '@/presenters/AuthPresenter';
 import { UserPresenter, UserView } from '@/presenters/UserPresenter';
 import { User } from '@/types/index';
@@ -180,11 +180,26 @@ export function UserNav({ className }: UserNavProps) {
             <span className="text-sm">My Profile</span>
           </DropdownMenuItem>
           <DropdownMenuItem className="cursor-pointer focus:bg-orange-50 focus:text-orange-600" asChild>
+            <Link href="/users/additem" className="flex items-center space-x-3">
+              <Plus className="mr-3 h-4 w-4" />
+              <span className="text-sm">Tambah Item</span>
+            </Link>
+          </DropdownMenuItem>{' '}
+          <DropdownMenuItem className="cursor-pointer focus:bg-orange-50 focus:text-orange-600" asChild>
             <Link href="/users/settings" className="flex items-center space-x-3">
               <Settings className="mr-3 h-4 w-4" />
               <span className="text-sm">Settings</span>
             </Link>
           </DropdownMenuItem>
+          {/* Only show Dashboard for admin users */}
+          {user?.role === 'admin' && (
+            <DropdownMenuItem className="cursor-pointer focus:bg-orange-50 focus:text-orange-600" asChild>
+              <Link href="/dashboard" className="flex items-center space-x-3">
+                <Book className="mr-3 h-4 w-4" />
+                <span className="text-sm">Dashboard</span>
+              </Link>
+            </DropdownMenuItem>
+          )}
           <DropdownMenuSeparator className="my-2" />
           <DropdownMenuItem className="cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-700" onClick={handleSignOut}>
             <LogOut className="mr-3 h-4 w-4" />

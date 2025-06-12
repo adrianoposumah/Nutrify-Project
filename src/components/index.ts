@@ -23,6 +23,7 @@ export { Skeleton } from './ui/skeleton';
 export { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 export { Textarea } from './ui/textarea';
 export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+export { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './ui/pagination';
 export { Combobox } from './ui/combobox';
 export { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription } from './ui/dialog';
 

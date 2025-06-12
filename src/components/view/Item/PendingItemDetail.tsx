@@ -24,20 +24,14 @@ export default function PendingItemDetail({ selectedItem }: PendingItemDetailPro
       minute: '2-digit',
     });
   };
-
-  const getStatusBadgeVariant = (status: string): 'default' | 'destructive' | 'outline' | 'secondary' => {
-    switch (status.toUpperCase()) {
-      case 'CAUTION':
-      case 'HIGH RISK':
-      case 'WARNING':
-        return 'destructive';
-      case 'MODERATE CONSUMPTION':
-      case 'NEUTRAL':
-        return 'secondary';
-      case 'SAFE':
-      case 'NORMAL CONSUMPTION':
-      case 'BENEFICIAL':
-        return 'default';
+  const getLevelBadgeVariant = (level: string): 'default' | 'destructive' | 'outline' | 'secondary' | 'normal' | 'medium' | 'warning' => {
+    switch (level.toLowerCase()) {
+      case 'high':
+        return 'warning';
+      case 'medium':
+        return 'medium';
+      case 'low':
+        return 'normal';
       default:
         return 'outline';
     }
@@ -256,7 +250,7 @@ export default function PendingItemDetail({ selectedItem }: PendingItemDetailPro
                     <AccordionTrigger>
                       <div className="flex items-center gap-2">
                         <span>{diseaseItem.disease.replace(/_/g, ' ')}</span>
-                        <Badge variant={getStatusBadgeVariant(diseaseItem.status)}>{diseaseItem.status}</Badge>
+                        <Badge variant={getLevelBadgeVariant(diseaseItem.level)}>{diseaseItem.status}</Badge>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent>
