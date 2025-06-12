@@ -115,11 +115,6 @@ export function UserCard({ className }: UserCardProps) {
                   <Mail className="h-4 w-4" />
                   <span>{user.email}</span>
                 </div>
-
-                <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground sm:justify-start">
-                  <UserIcon className="h-4 w-4" />
-                  <span>User ID: {user.id}</span>
-                </div>
               </div>
 
               <Badge variant="outline" className="capitalize">
