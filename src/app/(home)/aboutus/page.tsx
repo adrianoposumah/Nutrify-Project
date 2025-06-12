@@ -4,6 +4,7 @@ import Image from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FloatingBubbles } from '@/components/main/FloatingBubbles';
+import { DocumentTitle } from '@/components/features/DocumentTitle';
 
 export default function AboutUs() {
   useEffect(() => {
@@ -15,6 +16,7 @@ export default function AboutUs() {
 
   return (
     <>
+      <DocumentTitle title="Tentang Kami | Nutrify" />
       <FloatingBubbles />
       <div className="relative" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4 my-20 lg:my-30 text-center">

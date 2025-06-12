@@ -1,10 +1,14 @@
-'use client';
-
 import React from 'react';
 import PredictForm from '@/components/view/Predict/PredictForm';
+import { Metadata } from 'next';
 import { Brain } from 'lucide-react';
 import Link from 'next/link';
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@/components/index';
+
+export const metadata: Metadata = {
+  title: 'Tools | Nutrify',
+  description: 'User profile dashboard page.',
+};
 
 export default function ToolsPage() {
   return (

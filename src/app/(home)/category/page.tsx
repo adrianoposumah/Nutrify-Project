@@ -1,8 +1,14 @@
 import { ShowItem } from '@/components/index';
 import { Utensils } from 'lucide-react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@/components/index';
+
+export const metadata: Metadata = {
+  title: 'Kategori | Nutrify',
+  description: 'User profile dashboard page.',
+};
 
 export default function CategoryPage() {
   return (
