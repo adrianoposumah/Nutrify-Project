@@ -3,6 +3,7 @@ import { ThemeProvider } from 'next-themes';
 
 import { Toaster } from 'react-hot-toast';
 
+import ServiceWorkerRegistration from '@/components/features/ServiceWorkerRegistration';
 import './globals.css';
 
 const poppins = Poppins({
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} ${workSans.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ServiceWorkerRegistration />
           <Toaster position="top-right" reverseOrder={false} />
           {children}
         </ThemeProvider>

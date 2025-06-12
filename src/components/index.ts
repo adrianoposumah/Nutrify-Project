@@ -7,6 +7,7 @@ export { default as UserSidebar } from './main/UserSidebar';
 // Feature components
 export { default as BackgroundProvider } from './features/BackgroundProvider';
 export { default as RecommendationFood } from './features/RecommendationFood';
+export { default as ServiceWorkerRegistration } from './features/ServiceWorkerRegistration';
 
 // UI components
 export { Button, buttonVariants } from './ui/button';
