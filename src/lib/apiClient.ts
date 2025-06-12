@@ -86,10 +86,46 @@ class ApiClient {
   }
 }
 
-class MLApiClient extends ApiClient {
+class MLApiClient {
+  protected client: AxiosInstance;
+
   constructor() {
-    super();
-    this.client.defaults.baseURL = process.env.NEXT_PUBLIC_API_ML_URL;
+    this.client = axios.create({
+      baseURL: process.env.NEXT_PUBLIC_API_ML_URL,
+      withCredentials: false, // No credentials needed for ML API
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  async get<T>(url: string, config?: any): Promise<T> {
+    const response = await this.client.get(url, config);
+    return response.data;
+  }
+
+  async post<T>(url: string, data?: any, config?: any): Promise<T> {
+    const response = await this.client.post(url, data, config);
+    return response.data;
+  }
+
+  async put<T>(url: string, data?: any, config?: any): Promise<T> {
+    const response = await this.client.put(url, data, config);
+    return response.data;
+  }
+
+  async delete<T>(url: string, config?: any): Promise<T> {
+    const response = await this.client.delete(url, config);
+    return response.data;
+  }
+
+  async patch<T>(url: string, data?: any, config?: any): Promise<T> {
+    const response = await this.client.patch(url, data, config);
+    return response.data;
+  }
+
+  getInstance(): AxiosInstance {
+    return this.client;
   }
 }
 

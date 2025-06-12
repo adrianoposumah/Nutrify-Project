@@ -6,7 +6,7 @@ export class PredictModel {
   async predict(payload: PredictionRequest): Promise<PredictionResponse> {
     try {
       console.log('Making prediction request with payload:', payload);
-      console.log('ML API Base URL:', process.env.NEXT_PUBLIC_ML_API_URL);
+      console.log('ML API Base URL:', process.env.NEXT_PUBLIC_API_ML_URL);
 
       const response = await mlApiClient.post<PredictionResponse>('/predict', payload);
 

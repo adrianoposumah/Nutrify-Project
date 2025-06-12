@@ -183,11 +183,11 @@ export default function PredictForm({ onSuccess }: PredictFormProps) {
 
   const getStatusColor = (status: string, level: string) => {
     if (level === 'high' && status === 'Warning') {
-      return 'border-red-200 bg-red-50';
+      return 'border-red-200 bg-red-50 dark:border-red-500 dark:bg-red-400';
     } else if (level === 'normal') {
-      return 'border-green-200 bg-green-50';
+      return 'border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950';
     } else {
-      return 'border-yellow-200 bg-yellow-50';
+      return 'border-yellow-200 bg-yellow-50 dark:border-yellow-800 dark:bg-yellow-950';
     }
   };
 
