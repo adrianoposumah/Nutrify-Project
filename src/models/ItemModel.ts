@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Item, CreateItemRequest, Ingredient, DiseaseRate, ItemResponse, ItemListResponse, ApiResponse, IngredientListResponse } from '@/types/index';
 import { apiClient } from '@/lib/apiClient';
+import { offlineApiClient } from '@/lib/offlineApiClient';
 
 export class ItemModel {
   async getAllItems(page?: number, limit?: number): Promise<ItemListResponse> {
@@ -47,13 +48,35 @@ export class ItemModel {
       throw error;
     }
   }
-
   async getRandom10Items(): Promise<ItemListResponse> {
     try {
-      const response = await apiClient.get<ItemListResponse>(`/random-items`);
+      // Try the offline-capable API client first
+      const response = await offlineApiClient.get<ItemListResponse>(`/random-items`);
+
+      // Cache successful responses for offline use
+      if (response && response.data) {
+        await this.cacheRandomItems(response);
+      }
+
       return response;
-    } catch (error) {
-      throw error;
+    } catch {
+      // Fallback to regular API client
+      try {
+        const response = await apiClient.get<ItemListResponse>(`/random-items`);
+
+        // Cache successful responses
+        if (response && response.data) {
+          await this.cacheRandomItems(response);
+        }
+
+        return response;
+      } catch {
+        // If both fail and we're offline, return cached data
+        if (!navigator.onLine) {
+          return this.getOfflineRandomItems();
+        }
+        throw new Error('Unable to fetch random items');
+      }
     }
   }
   async createItem(item: CreateItemRequest): Promise<ItemResponse> {
@@ -81,5 +104,46 @@ export class ItemModel {
     } catch (error) {
       throw error;
     }
+  }
+  // New offline support methods
+  private async getOfflineRandomItems(): Promise<ItemListResponse> {
+    try {
+      // Try to get data from localStorage
+      const cachedData = localStorage.getItem('nutrify-random-items');
+      if (cachedData) {
+        const parsed = JSON.parse(cachedData);
+        // Check if data is not too old (24 hours)
+        const now = Date.now();
+        if (now - parsed.timestamp < 24 * 60 * 60 * 1000) {
+          return {
+            success: true,
+            data: parsed.data,
+          };
+        }
+      }
+    } catch {
+      console.error('Error getting offline random items');
+    }
+
+    // Return empty response as last resort
+    return {
+      success: false,
+      data: [],
+    };
+  }
+  async cacheRandomItems(data: ItemListResponse): Promise<void> {
+    try {
+      const cacheData = {
+        data: data.data,
+        timestamp: Date.now(),
+      };
+      localStorage.setItem('nutrify-random-items', JSON.stringify(cacheData));
+    } catch {
+      console.error('Error caching random items');
+    }
+  }
+
+  isOnline(): boolean {
+    return navigator.onLine;
   }
 }

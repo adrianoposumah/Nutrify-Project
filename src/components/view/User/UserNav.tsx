@@ -132,14 +132,6 @@ export function UserNav({ className }: UserNavProps) {
 
   return (
     <div className={`flex items-center space-x-4 ${className}`}>
-      {/* Notifications */}
-      <Button variant="ghost" size="sm" className="relative hover:bg-orange-50 hover:text-orange-600">
-        <Bell className="h-5 w-5" />
-        <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs flex items-center justify-center">
-          3
-        </Badge>
-      </Button>
-
       {/* User Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
