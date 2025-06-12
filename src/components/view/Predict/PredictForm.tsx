@@ -212,9 +212,9 @@ export default function PredictForm({ onSuccess }: PredictFormProps) {
 
               <div className="space-y-3">
                 {ingredients.map((ingredient, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 border rounded-lg bg-gray-50">
+                  <div key={index} className="flex items-center gap-3 p-4 border rounded-lg ">
                     <div className="flex-1">
-                      <Label className="text-sm text-gray-600">Nama Bahan</Label>
+                      <Label className="text-sm ">Nama Bahan</Label>
                       <Combobox
                         options={availableIngredients.map((ing) => ing.IngredientId)}
                         value={ingredient.ingredient}
@@ -226,7 +226,7 @@ export default function PredictForm({ onSuccess }: PredictFormProps) {
                       />
                     </div>
                     <div className="w-32">
-                      <Label className="text-sm text-gray-600">Takaran (gram)</Label>
+                      <Label className="text-sm ">Takaran (gram)</Label>
                       <Input
                         type="number"
                         value={ingredient.dose}

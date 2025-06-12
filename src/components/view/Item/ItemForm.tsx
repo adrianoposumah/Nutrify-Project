@@ -247,35 +247,30 @@ export default function ItemForm({ onSuccess, onCancel }: ItemFormProps) {
           <Button type="button" onClick={handlePreviewImage} disabled={isLoading || !formData.image} variant="outline">
             Preview
           </Button>
-        </div>
+        </div>{' '}
         <div className="mt-4">
-          <Label className="text-sm text-gray-600 mb-2 block">Preview Gambar:</Label>
+          <Label className="text-sm  mb-2 block">Preview Gambar:</Label>
           <div className="relative">
-            <Image
-              src={previewImage}
-              alt="Food preview"
-              width={600}
-              height={400}
-              className="w-full max-w-md h-64 object-cover rounded-lg border shadow-sm"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const errorDiv = target.nextElementSibling as HTMLElement;
-                if (errorDiv) errorDiv.style.display = 'block';
-              }}
-              onLoad={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'block';
-                const errorDiv = target.nextElementSibling as HTMLElement;
-                if (errorDiv) errorDiv.style.display = 'none';
-              }}
-            />
-            <div className="w-full max-w-md h-64 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center text-gray-600 text-sm" style={{ display: previewImage ? 'none' : 'flex' }}>
-              <div className="text-center">
-                <p className="font-medium">Preview Gambar</p>
-                <p className="text-xs mt-1">Masukkan URL yang valid dan klik Preview</p>
+            {' '}
+            {previewImage ? (
+              <Image
+                src={previewImage}
+                alt="Food preview"
+                width={600}
+                height={400}
+                className="w-full max-w-md h-64 object-cover rounded-lg border shadow-sm"
+                onError={() => {
+                  setPreviewImage('');
+                }}
+              />
+            ) : (
+              <div className="w-full max-w-md h-64 bg-gray-100 border border-gray-200 rounded-lg flex items-center justify-center text-gray-600 text-sm">
+                <div className="text-center">
+                  <p className="font-medium">Preview Gambar</p>
+                  <p className="text-xs mt-1">Masukkan URL yang valid dan klik Preview</p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
@@ -298,10 +293,10 @@ export default function ItemForm({ onSuccess, onCancel }: ItemFormProps) {
 
         <div className="space-y-3">
           {formData.ingredients.map((ingredient, index) => (
-            <div key={index} className="flex items-center gap-3 p-4 border rounded-lg bg-gray-50">
+            <div key={index} className="flex items-center gap-3 p-4 border rounded-lg ">
               {' '}
               <div className="flex-1">
-                <Label className="text-sm text-gray-600">Nama Bahan</Label>{' '}
+                <Label className="text-sm ">Nama Bahan</Label>{' '}
                 <Combobox
                   options={availableIngredients.map((ing) => ing.IngredientId)}
                   value={ingredient.ingredientName}
@@ -313,7 +308,7 @@ export default function ItemForm({ onSuccess, onCancel }: ItemFormProps) {
                 />
               </div>
               <div className="w-32">
-                <Label className="text-sm text-gray-600">Takaran (gram)</Label>
+                <Label className="text-sm ">Takaran (gram)</Label>
                 <Input
                   type="number"
                   value={ingredient.ingredientDose}

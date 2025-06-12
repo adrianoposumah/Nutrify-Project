@@ -23,7 +23,7 @@ const allNavigationItems = [
     title: 'Pending Item',
     url: '/users/pending',
     icon: BookOpenCheck,
-    allowedRoles: ['admin', 'moderator'], // Only admin and moderator can see this
+    allowedRoles: ['admin', 'moderator'],
   },
   {
     title: 'Pengaturan',

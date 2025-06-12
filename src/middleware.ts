@@ -1,15 +1,30 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { jwtDecode } from 'jwt-decode';
 
 interface JWTPayload {
   id: string;
-  role: string;
+  role?: string; // Make role optional since it's not in the JWT
+  iat: number;
   exp: number;
+}
+
+// Simple JWT decode function for middleware
+function decodeJWT(token: string): JWTPayload | null {
+  try {
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+
+    const payload = parts[1];
+    const decoded = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
+    return decoded;
+  } catch {
+    return null;
+  }
 }
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
   if (pathname.startsWith('/dashboard')) {
     const token = request.cookies.get('jwt')?.value;
     console.log('Dashboard access attempt:', { pathname, hasToken: !!token });
@@ -21,26 +36,7 @@ export function middleware(request: NextRequest) {
       return NextResponse.redirect(signinUrl);
     }
 
-    try {
-      const decoded = jwtDecode<JWTPayload>(token);
-      console.log('Decoded token:', { role: decoded.role, exp: decoded.exp, id: decoded.id });
-
-      // Check if token is expired
-      if (decoded.exp * 1000 < Date.now()) {
-        console.log('Token expired, redirecting to signin');
-        const signinUrl = new URL('/signin', request.url);
-        signinUrl.searchParams.set('redirect', pathname);
-        return NextResponse.redirect(signinUrl);
-      }
-
-      console.log('Access granted to dashboard (role checking disabled until backend fix)');
-    } catch (error) {
-      console.log('Token decode error:', error);
-      // Invalid token, redirect to signin
-      const signinUrl = new URL('/signin', request.url);
-      signinUrl.searchParams.set('redirect', pathname);
-      return NextResponse.redirect(signinUrl);
-    }
+    console.log('Access granted to dashboard');
   }
 
   if (pathname.startsWith('/users/')) {
@@ -55,22 +51,43 @@ export function middleware(request: NextRequest) {
     // Role-based protection for pending route
     if (pathname.startsWith('/users/pending')) {
       try {
-        const decoded = jwtDecode<JWTPayload>(token);
+        console.log('Token found:', token ? token.substring(0, 20) + '...' : 'No token');
 
-        // Check if token is expired
-        if (decoded.exp * 1000 < Date.now()) {
+        const decoded = decodeJWT(token);
+        console.log('Decoded JWT:', decoded);
+
+        if (!decoded) {
+          console.log('Failed to decode JWT, redirecting to signin');
           const signinUrl = new URL('/signin', request.url);
           signinUrl.searchParams.set('redirect', pathname);
           return NextResponse.redirect(signinUrl);
         }
 
+        // Check if token is expired
+        if (decoded.exp * 1000 < Date.now()) {
+          console.log('Token expired, redirecting to signin');
+          const signinUrl = new URL('/signin', request.url);
+          signinUrl.searchParams.set('redirect', pathname);
+          return NextResponse.redirect(signinUrl);
+        }
+
+        // Since JWT doesn't contain role, we need to check it differently
+        // For now, let's store the role in a separate cookie when user logs in
+        const userRole = request.cookies.get('user_role')?.value;
+        console.log('User role from cookie:', userRole);
+
         // Check if user has admin or moderator role
-        if (!decoded.role || (decoded.role !== 'admin' && decoded.role !== 'moderator')) {
-          // Redirect to dashboard or show access denied
+        if (!userRole || (userRole !== 'admin' && userRole !== 'moderator')) {
+          console.log('Access denied to pending route:', {
+            role: userRole,
+            required: 'admin or moderator',
+          });
           return NextResponse.redirect(new URL('/users/profile', request.url));
         }
-      } catch {
-        // Invalid token, redirect to signin
+
+        console.log('Access granted to pending route');
+      } catch (error) {
+        console.log('Error processing JWT:', error);
         const signinUrl = new URL('/signin', request.url);
         signinUrl.searchParams.set('redirect', pathname);
         return NextResponse.redirect(signinUrl);

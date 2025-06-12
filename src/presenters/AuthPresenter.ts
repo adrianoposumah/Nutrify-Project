@@ -35,6 +35,19 @@ export class AuthPresenter {
         const user = await this.userModel.getCurrentUser();
         this.view.setUser(user);
 
+        // Store user role in cookie for middleware access
+        if (user && user.role) {
+          const expirationDate = new Date();
+          expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000); // 24 hours
+          const isSecure = typeof window !== 'undefined' && window.location.protocol === 'https:';
+          const roleCookieString = `user_role=${user.role}; expires=${expirationDate.toUTCString()}; path=/; ${isSecure ? 'secure;' : ''} samesite=lax`;
+
+          if (typeof document !== 'undefined') {
+            document.cookie = roleCookieString;
+            console.log('User role stored in cookie:', user.role);
+          }
+        }
+
         if (user && user.name) {
           const formattedName = user.name.toLowerCase().replace(/\s+/g, '');
 
@@ -130,10 +143,20 @@ export class AuthPresenter {
 
       this.view.setUser(null);
 
+      // Clear user role cookie
+      if (typeof document !== 'undefined') {
+        document.cookie = 'user_role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+      }
+
       this.view.showSuccess(response.message || 'Logout successful');
     } catch (error) {
       const apiError = error as ApiError;
       this.view.setUser(null);
+
+      // Clear user role cookie even on error
+      if (typeof document !== 'undefined') {
+        document.cookie = 'user_role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+      }
 
       this.view.showSuccess('Logged out successfully');
     } finally {
