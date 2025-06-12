@@ -11,13 +11,13 @@ const navigationItems = [
     icon: User,
   },
   {
-    title: 'Tambah Makanan',
+    title: 'Tambah Item',
     url: '/users/additem',
     icon: Plus,
   },
   {
-    title: 'Request Makanan',
-    url: '/users/request',
+    title: 'Pending Item',
+    url: '/users/pending',
     icon: BookOpenCheck,
   },
   {

@@ -43,8 +43,30 @@ export interface NutritionTotal {
   cholesterol: number;
   sodium: number;
   water: number;
-  vitamins: Vitamins;
-  minerals: Minerals;
+  // Support both nested and flat structure
+  vitamins?: Vitamins;
+  minerals?: Minerals;
+  // Flat structure for vitamins
+  vitamin_A?: number;
+  vitamin_B1?: number;
+  vitamin_B2?: number;
+  vitamin_B3?: number;
+  vitamin_B5?: number;
+  vitamin_B6?: number;
+  vitamin_B9?: number;
+  vitamin_B11?: number;
+  vitamin_B12?: number;
+  vitamin_C?: number;
+  vitamin_D?: number;
+  vitamin_E?: number;
+  vitamin_K?: number;
+  // Flat structure for minerals
+  calcium?: number;
+  iron?: number;
+  magnesium?: number;
+  phosphorus?: number;
+  potassium?: number;
+  zinc?: number;
 }
 
 export interface Item {
@@ -99,4 +121,55 @@ export interface CreateItemRequest {
   image: string;
   origin?: string;
   ingredients?: Ingredient[];
+}
+
+// Pending Item interfaces
+export interface PendingItem {
+  pendingId: string;
+  name: string;
+  nation?: string;
+  category: string;
+  description: string;
+  image: string;
+  origin?: string;
+  ingredients?: Ingredient[];
+  nutrition_total?: NutritionTotal;
+  disease_rate?: DiseaseRate[];
+  status: 'pending' | 'approved' | 'rejected';
+  submittedBy:
+    | {
+        userId: string;
+        name: string;
+        email: string;
+      }
+    | string;
+  submittedAt: string;
+  reviewedBy?: string | null;
+  reviewedAt?: string | null;
+  pendingItemUpdatedAt: string;
+  rejectionReason?: string;
+}
+
+export interface PendingItemListResponse {
+  status: string;
+  message: string;
+  data: PendingItem[];
+}
+
+export interface PendingItemDetailResponse {
+  status: string;
+  message: string;
+  data: PendingItem;
+}
+
+export interface ApproveRejectResponse {
+  status: string;
+  message: string;
+  data: {
+    pendingId?: string;
+    itemId?: string;
+    name: string;
+    status: string;
+    rejectionReason?: string;
+  };
 }

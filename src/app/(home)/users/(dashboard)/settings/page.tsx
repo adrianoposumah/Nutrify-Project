@@ -12,7 +12,6 @@ export default function SettingsPage() {
   return (
     <div className="dashboard-container w-full">
       <div className="grid lg:grid-cols-3 gap-6">
-        {/* Account Information */}
         <div className="lg:col-span-2">
           <Card>
             <CardHeader>
