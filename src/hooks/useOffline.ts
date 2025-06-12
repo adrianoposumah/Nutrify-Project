@@ -29,17 +29,28 @@ export function useOnlineStatus() {
 export function useServiceWorker() {
   const [isSupported, setIsSupported] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null);
 
   useEffect(() => {
     const isServiceWorkerSupported = 'serviceWorker' in navigator;
     setIsSupported(isServiceWorkerSupported);
 
     if (isServiceWorkerSupported) {
-      navigator.serviceWorker.getRegistration().then((registration) => {
-        setIsRegistered(!!registration);
+      // Check for existing registration
+      navigator.serviceWorker.getRegistration().then((reg) => {
+        setIsRegistered(!!reg);
+        setRegistration(reg || null);
+      });
+
+      // Listen for service worker registration changes
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        navigator.serviceWorker.getRegistration().then((reg) => {
+          setIsRegistered(!!reg);
+          setRegistration(reg || null);
+        });
       });
     }
   }, []);
 
-  return { isSupported, isRegistered };
+  return { isSupported, isRegistered, registration };
 }
