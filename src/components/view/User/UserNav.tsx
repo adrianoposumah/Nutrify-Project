@@ -190,7 +190,7 @@ export function UserNav({ className }: UserNavProps) {
               <Settings className="mr-3 h-4 w-4" />
               <span className="text-sm">Settings</span>
             </Link>
-          </DropdownMenuItem>
+          </DropdownMenuItem>{' '}
           {/* Only show Dashboard for admin users */}
           {user?.role === 'admin' && (
             <DropdownMenuItem className="cursor-pointer focus:bg-orange-50 focus:text-orange-600" asChild>
