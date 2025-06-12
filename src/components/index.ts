@@ -7,10 +7,6 @@ export { default as UserSidebar } from './main/UserSidebar';
 // Feature components
 export { default as BackgroundProvider } from './features/BackgroundProvider';
 export { default as RecommendationFood } from './features/RecommendationFood';
-export { default as ServiceWorkerRegistration } from './features/ServiceWorkerRegistration';
-export { default as OfflineStatus } from './features/OfflineStatus';
-export { default as OfflineIndicator } from './features/OfflineIndicator';
-export { default as CacheStatus } from './features/CacheStatus';
 
 // UI components
 export { Button, buttonVariants } from './ui/button';
