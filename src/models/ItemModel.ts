@@ -3,9 +3,19 @@ import { Item, CreateItemRequest, Ingredient, DiseaseRate, ItemResponse, ItemLis
 import { apiClient } from '@/lib/apiClient';
 
 export class ItemModel {
-  async getAllItems(): Promise<ItemListResponse> {
+  async getAllItems(page?: number, limit?: number): Promise<ItemListResponse> {
     try {
-      const response = await apiClient.get<ItemListResponse>(`/items`);
+      let url = '/items';
+      const params = new URLSearchParams();
+
+      if (page !== undefined) params.append('page', page.toString());
+      if (limit !== undefined) params.append('limit', limit.toString());
+
+      if (params.toString()) {
+        url += `?${params.toString()}`;
+      }
+
+      const response = await apiClient.get<ItemListResponse>(url);
       return response;
     } catch (error) {
       throw error;

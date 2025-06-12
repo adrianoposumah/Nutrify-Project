@@ -144,7 +144,7 @@ export default function ItemDetail() {
               </div>
             </div>
             <div className="mb-8 text-pretty">
-              <p className="leading-relaxed">{food.description}</p>
+              <p className="leading-relaxed text-wrap">{food.description}</p>
             </div>
             <div className="mb-8">
               <h2 className="text-xl font-bold mb-4">Bahan-bahan:</h2>
@@ -169,8 +169,8 @@ export default function ItemDetail() {
                     <AccordionItem key={index} value={`disease-${index}`}>
                       <AccordionTrigger>
                         <div className="flex w-full justify-between items-center">
-                          <span className="font-medium text-base">{diseaseItem.disease}</span>
-                          <Badge variant={getStatusBadgeVariant(diseaseItem.status)} className="ml-2">
+                          <span className="font-medium text-base">{diseaseItem.disease}</span>{' '}
+                          <Badge variant={getLevelBadgeVariant(diseaseItem.level)} className="ml-2">
                             {diseaseItem.status}
                           </Badge>
                         </div>
@@ -334,20 +334,14 @@ function formatMineralName(key: string): string {
   return mineralNames[key] || key;
 }
 
-function getStatusBadgeVariant(status: string): 'default' | 'destructive' | 'outline' | 'secondary' | 'success' {
-  switch (status.toUpperCase()) {
-    case 'CAUTION':
-    case 'HIGH RISK':
-    case 'WASPADA':
-    case 'ALERT':
-      return 'destructive';
-    case 'MODERATE CONSUMPTION':
-    case 'KONSUMSI WAJAR':
-      return 'secondary';
-    case 'SAFE':
-    case 'AMAN':
-    case 'BENEFICIAL':
-      return 'success';
+function getLevelBadgeVariant(level: string): 'default' | 'destructive' | 'outline' | 'secondary' | 'success' | 'normal' | 'medium' | 'warning' {
+  switch (level.toLowerCase()) {
+    case 'high':
+      return 'warning';
+    case 'medium':
+      return 'medium';
+    case 'normal':
+      return 'normal';
     default:
       return 'outline';
   }

@@ -12,7 +12,6 @@ export default function AddItemPage() {
 
   const handleSuccess = (createdItem?: Item) => {
     if (createdItem && createdItem.name) {
-      // Convert item name to URL format and redirect
       const formattedName = formatItemNameForUrl(createdItem.name);
       router.push(`/item/${formattedName}`);
     }

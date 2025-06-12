@@ -38,8 +38,9 @@ export default function Home() {
             Tentang <span className="text-orange-500">Nutrify</span>
           </h1>
           <p className="lg:w-250 mt-3 mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati possimus sed architecto, impedit mollitia vero voluptatibus iste officia, tempore temporibus aliquam quidem harum accusantium perspiciatis adipisci nemo
-            aperiam. Consectetur architecto, aperiam nihil illo hic voluptatem? Ducimus ut numquam nihil cum.
+            Nutrify adalah panduan nutrisi cerdas Anda, yang dirancang untuk membantu Anda membuat pilihan makanan yang tepat sesuai dengan kondisi kesehatan Anda. Basis data makanan kami yang komprehensif, diperkaya dengan penandaan khusus
+            dan kemampuan AI terintegrasi, memberdayakan Anda untuk dengan mudah mengidentifikasi makanan yang bermanfaat atau sebaiknya dihindari. Nutrify menyederhanakan pola makan sehat, menempatkan panduan nutrisi yang dipersonalisasi
+            langsung di ujung jari Anda.
           </p>
         </section>
         {/* Recommendation */}

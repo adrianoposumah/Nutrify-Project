@@ -1,34 +1,67 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Plus, Settings, User, BookOpenCheck } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { UserPresenter, UserView } from '@/presenters/UserPresenter';
+import { User as UserType } from '@/types/auth';
 
-const navigationItems = [
+const allNavigationItems = [
   {
     title: 'Profil',
     url: '/users/profile',
     icon: User,
+    allowedRoles: ['admin', 'moderator', 'user'],
   },
   {
-    title: 'Tambah Makanan',
+    title: 'Tambah Item',
     url: '/users/additem',
     icon: Plus,
+    allowedRoles: ['admin', 'moderator', 'user'],
   },
   {
-    title: 'Request Makanan',
-    url: '/users/request',
+    title: 'Pending Item',
+    url: '/users/pending',
     icon: BookOpenCheck,
+    allowedRoles: ['admin', 'moderator'], // Only admin and moderator can see this
   },
   {
     title: 'Pengaturan',
     url: '/users/settings',
     icon: Settings,
+    allowedRoles: ['admin', 'moderator', 'user'],
   },
 ];
 
 const UserSidebar = () => {
   const pathname = usePathname();
+  const [navigationItems, setNavigationItems] = useState(allNavigationItems);
+
+  // UserView interface for the presenter
+  const userViewInterface = useCallback(
+    (): UserView => ({
+      showLoading: () => {}, // Handle loading silently for sidebar
+      showSuccess: () => {}, // Not needed for this component
+      showError: () => {}, // Handle silently
+      setUser: (user: UserType | null) => {
+        // Filter navigation items based on user role
+        if (user && user.role) {
+          const filteredItems = allNavigationItems.filter((item) => item.allowedRoles.includes(user.role));
+          setNavigationItems(filteredItems);
+        } else {
+          // If no user or role, show all items (fallback)
+          setNavigationItems(allNavigationItems);
+        }
+      },
+      setProfilePicture: () => {}, // Not needed for this component
+    }),
+    []
+  );
+
+  useEffect(() => {
+    const userPresenter = new UserPresenter(userViewInterface());
+    userPresenter.getCurrentUser();
+  }, [userViewInterface]);
 
   return (
     <>

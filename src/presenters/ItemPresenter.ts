@@ -8,6 +8,7 @@ export interface ItemView {
   showError: (message: string) => void;
   setItems: (items: Item[]) => void;
   setItem: (item: Item | null) => void;
+  setPagination?: (pagination: { currentPage: number; totalPages: number; totalItems: number; limit: number }) => void;
   navigateToItem?: (itemId: string) => void;
   refreshData?: () => void;
 }
@@ -36,11 +37,14 @@ export class ItemPresenter {
     this.itemModel = new ItemModel();
     this.view = view;
   }
-  async getAllItems(): Promise<boolean> {
+  async getAllItems(page: number = 1, limit: number = 20): Promise<boolean> {
     try {
       this.view.showLoading(true);
-      const response = await this.itemModel.getAllItems();
+      const response = await this.itemModel.getAllItems(page, limit);
       this.view.setItems(response.data || []);
+      if (response.pagination && this.view.setPagination) {
+        this.view.setPagination(response.pagination);
+      }
       return true;
     } catch (error) {
       const apiError = error as ApiError;

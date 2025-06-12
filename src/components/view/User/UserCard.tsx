@@ -187,20 +187,6 @@ export function UserCard({ className }: UserCardProps) {
             </CardContent>
           </Card>
         </div>
-
-        {user.hasProfilePicture && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Profile Picture Details</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Image Type</span>
-                <span className="font-medium">{user.profilePictureMimeType}</span>
-              </div>
-            </CardContent>
-          </Card>
-        )}
       </div>
     </div>
   );

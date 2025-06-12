@@ -8,7 +8,7 @@ export default function UserDashboardLayout({
   return (
     <>
       <div>
-        <div className="container mx-auto px-4 py-10 lg:py-25">
+        <div className="container mx-auto px-4 py-20 lg:py-25">
           <div className="flex w-full gap-5">
             <UserSidebar />
             {children}
