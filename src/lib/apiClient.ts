@@ -2,7 +2,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 class ApiClient {
-  private client: AxiosInstance;
+  protected client: AxiosInstance;
 
   constructor() {
     this.client = axios.create({
@@ -85,5 +85,14 @@ class ApiClient {
     return this.client;
   }
 }
+
+class MLApiClient extends ApiClient {
+  constructor() {
+    super();
+    this.client.defaults.baseURL = process.env.NEXT_PUBLIC_API_ML_URL;
+  }
+}
+
+export const mlApiClient = new MLApiClient();
 
 export const apiClient = new ApiClient();
