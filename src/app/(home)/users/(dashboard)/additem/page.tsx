@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import ItemForm from '@/components/view/Item/ItemForm';
 import { Item } from '@/types';
 import { formatItemNameForUrl } from '@/utils/urlFormatter';
+import { DocumentTitle } from '@/components/features/DocumentTitle';
 
 export default function AddItemPage() {
   const router = useRouter();
@@ -18,16 +19,20 @@ export default function AddItemPage() {
   };
 
   return (
-    <div className="dashboard-container w-full">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold">Tambahkan Makanan</CardTitle>
-          <CardDescription>Masukkan detail makanan baru</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ItemForm onSuccess={handleSuccess} />
-        </CardContent>
-      </Card>
-    </div>
+    <>
+      <DocumentTitle title="Tambah Item | Nutrify" />
+
+      <div className="dashboard-container w-full">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold">Tambahkan Makanan</CardTitle>
+            <CardDescription>Masukkan detail makanan baru</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ItemForm onSuccess={handleSuccess} />
+          </CardContent>
+        </Card>
+      </div>
+    </>
   );
 }

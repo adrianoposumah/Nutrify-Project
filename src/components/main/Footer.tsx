@@ -1,9 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { ChevronRight } from "lucide-react";
-
-import { Button, Input } from "@/components";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ChevronRight } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -31,7 +29,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
           <div className="col-span-1 justify-self-start md:justify-self-center">
             <h4 className="font-medium mb-4 border-b border-gray-700 text-white pb-2">Quick Links</h4>
             <ul className="space-y-3">
@@ -60,17 +57,10 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
+          </div>{' '}
           <div className="col-span-1 md:col-span-2 lg:col-span-2 justify-self-start lg:justify-self-end">
             <h4 className="font-medium mb-4 border-b border-gray-700 pb-2 text-white">Hubungi Kami</h4>
             <p className="text-gray-300 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, odit!</p>
-            <div className="flex mt-5 max-w-md">
-              <Input placeholder="Email.." className="shadow-none border-none rounded-r-none h-10 focus-visible:ring-offset-0 focus-visible:ring-0 bg-white" />
-              <Button type="submit" className="ml-[-7] h-10 w-25">
-                Kirim
-              </Button>
-            </div>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-10 pt-6 text-center">
