@@ -100,7 +100,7 @@ const Navbar = () => {
             <SheetContent side="right" className="w-80">
               <SheetHeader className="border-b pb-4">
                 <SheetTitle>Navigation</SheetTitle>
-              </SheetHeader>
+              </SheetHeader>{' '}
               <div className="py-4">
                 <nav className="flex flex-col space-y-4">
                   {routes.map((route) => (
@@ -112,8 +112,7 @@ const Navbar = () => {
                       {route.label}
                     </Link>
                   ))}
-                </nav>
-
+                </nav>{' '}
                 <div className="mt-6 pt-6 border-t">
                   <UserNav className="w-full" />
                 </div>

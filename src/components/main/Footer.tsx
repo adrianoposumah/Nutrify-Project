@@ -13,7 +13,7 @@ const Footer = () => {
               <Image src="/NutrifyLogo.svg" alt="Nutrify Logo" width={35} height={35} priority />
               <h1 className="text-2xl font-bold text-orange-500">Nutrify</h1>
             </div>
-            <p className="text-gray-300 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur laborum aperiam nam provident. Deleniti, est minima reprehenderit sed atque dolorem.</p>
+            <p className="text-gray-300 mb-4">Panduan nutrisi cerdas dengan AI terintegrasi. Buat pilihan makanan yang tepat sesuai kondisi kesehatan Anda, langsung dari ujung jari.</p>
             <div className="mt-6">
               <h4 className="font-medium mb-3 text-white">Follow Us</h4>
               <div className="flex space-x-4">

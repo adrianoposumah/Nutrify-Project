@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -33,7 +34,7 @@ export default function SignIn() {
               </Link>
             </Button>
           </div>
-          <div className="relative w-full flex items-center">
+          {/* <div className="relative w-full flex items-center">
             <div className="flex-grow border-t border-gray-300"></div>
             <span className="flex-shrink mx-4 text-gray-500">or</span>
             <div className="flex-grow border-t border-gray-300"></div>
@@ -41,7 +42,7 @@ export default function SignIn() {
           <Button variant="outline" className="w-full flex items-center">
             <Image src="/Google.svg" alt="Google" width={30} height={30} />
             Sign in with Google
-          </Button>
+          </Button> */}
         </CardFooter>
       </Card>
     </div>
