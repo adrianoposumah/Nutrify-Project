@@ -7,12 +7,10 @@ export interface AdminView {
   pagination: Pagination;
   loading: boolean;
   error: string | null;
-  successMessage: string | null;
   setUsers: (users: AdminUser[]) => void;
   setPagination: (pagination: Pagination) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
-  setSuccessMessage: (message: string | null) => void;
 }
 
 export class AdminPresenter {
@@ -23,43 +21,61 @@ export class AdminPresenter {
     this.model = new AdminModel();
     this.view = view;
   }
-
+  private getErrorMessage(error: unknown, fallback: string): string {
+    if (error && typeof error === 'object') {
+      // Check for axios error structure
+      const maybeResponse = (error as { response?: { data?: { message?: string } } }).response;
+      const maybeData = maybeResponse?.data;
+      if (maybeData && typeof maybeData.message === 'string') {
+        return maybeData.message;
+      }
+      // Check for direct message property
+      if ('message' in error && typeof (error as { message?: string }).message === 'string') {
+        return (error as { message?: string }).message as string;
+      }
+    }
+    if (typeof error === 'string') {
+      return error;
+    }
+    return fallback;
+  }
   async getUsers(params?: GetUsersParams): Promise<boolean> {
     try {
       this.view.setLoading(true);
       this.view.setError(null);
 
       const result = await this.model.getUsers(params);
-      this.view.setUsers(result.users);
+      this.view.setUsers(result.users || []);
       this.view.setPagination(result.pagination);
 
       return true;
-    } catch (error) {
-      const apiError = error as ApiError;
-      this.view.setError(apiError.message || 'Failed to fetch users');
+    } catch (error: unknown) {
+      console.error('Error fetching users:', error);
+      const errorMessage = this.getErrorMessage(error, 'Failed to fetch users');
+      this.view.setError(errorMessage);
+      this.view.setUsers([]); // Set empty array on error
       return false;
     } finally {
       this.view.setLoading(false);
     }
   }
-  async changeUserRole(userIdToChange: string, newRole: string): Promise<boolean> {
+  async changeUserRole(userIdToChange: string, newRole: string): Promise<{ success: boolean; errorMessage?: string }> {
     try {
       this.view.setLoading(true);
       this.view.setError(null);
-      this.view.setSuccessMessage(null);
 
       const roleData: ChangeRoleRequest = { newRole };
-      const result = await this.model.changeUserRole(userIdToChange, roleData);
-      this.view.setSuccessMessage(result.message);
+      await this.model.changeUserRole(userIdToChange, roleData);
 
       // Refresh the users list
       await this.getUsers();
 
-      return true;
-    } catch (error) {
-      const apiError = error as ApiError;
-      this.view.setError(apiError.message || 'Failed to change user role');
-      return false;
+      return { success: true };
+    } catch (error: unknown) {
+      console.error('Error updating user role:', error);
+      const errorMessage = this.getErrorMessage(error, 'Failed to change user role');
+      this.view.setError(errorMessage);
+      return { success: false, errorMessage };
     } finally {
       this.view.setLoading(false);
     }
@@ -68,26 +84,23 @@ export class AdminPresenter {
     try {
       this.view.setLoading(true);
       this.view.setError(null);
-      this.view.setSuccessMessage(null);
 
-      const result = await this.model.deleteUser(userIdToDelete);
-      this.view.setSuccessMessage(result.message);
+      await this.model.deleteUser(userIdToDelete);
 
       // Refresh the users list
       await this.getUsers();
 
       return true;
-    } catch (error) {
-      const apiError = error as ApiError;
-      this.view.setError(apiError.message || 'Failed to delete user');
+    } catch (error: unknown) {
+      console.error('Error deleting user:', error);
+      const errorMessage = this.getErrorMessage(error, 'Failed to delete user');
+      this.view.setError(errorMessage);
       return false;
     } finally {
       this.view.setLoading(false);
     }
   }
-
   clearMessages(): void {
     this.view.setError(null);
-    this.view.setSuccessMessage(null);
   }
 }

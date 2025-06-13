@@ -29,5 +29,6 @@ export interface ChangeRoleRequest {
 }
 
 export interface AdminMessageResponse {
+  status: string;
   message: string;
 }

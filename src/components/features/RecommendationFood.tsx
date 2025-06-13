@@ -70,7 +70,7 @@ const RecommendationFood = () => {
   }
 
   return (
-    <section className="container mx-auto px-4 py-10 lg:py-20 text-center">
+    <section className="container mx-auto px-8 py-10 lg:py-20 text-center">
       <h1>Jelajahi Makanan</h1>
       <p className="mt-3 mx-auto">Temukan informasi makanan yang sesuai dengan kebutuhanmu</p>
       <Carousel
