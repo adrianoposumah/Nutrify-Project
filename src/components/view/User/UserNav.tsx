@@ -116,11 +116,11 @@ export function UserNav({ className }: UserNavProps) {
   }
   if (!isAuthenticated || !user) {
     return (
-      <div className={`flex items-center space-x-3 ${className}`}>
-        <Button variant="outline" className="bg-transparent text-orange-500 border-orange-500 hover:text-white hover:bg-orange-500 transition-colors" asChild>
+      <div className={`flex md:flex-col items-center md:space-y-3 md:w-full md:px-2 lg:gap-2 ${className}`}>
+        <Button variant="outline" className="md:w-full bg-transparent text-orange-500 border-orange-500 hover:text-white hover:bg-orange-500 transition-colors" asChild>
           <Link href="/signup">Sign Up</Link>
         </Button>
-        <Button className="bg-orange-500 hover:bg-orange-600 text-white" asChild>
+        <Button className="md:w-full bg-orange-500 hover:bg-orange-600 text-white" asChild>
           <Link href="/signin">Sign In</Link>
         </Button>
       </div>

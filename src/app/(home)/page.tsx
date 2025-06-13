@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
 import { RecommendationFood, BackgroundProvider } from '@/components';
+import { FloatingBubbles } from '@/components/main/FloatingBubbles';
 
 export const metadata: Metadata = {
   title: 'Home | Nutrify',
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
+      <FloatingBubbles />
       <section className="relative w-full h-[500] lg:h-screen mt-0">
         <BackgroundProvider />
         <div className="absolute inset-0 flex flex-col justify-center">
@@ -26,7 +28,6 @@ export default function Home() {
         </div>
       </section>
       <main>
-        {/* About Us */}
         <section className="container mx-auto px-4 py-10 lg:py-20 text-center">
           <h1>
             Tentang <span className="text-orange-500">Nutrify</span>

@@ -25,7 +25,6 @@ export default function UserTable({ className }: UserTableProps) {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [selectedUser, setSelectedUser] = useState<AdminUser | null>(null);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
@@ -35,12 +34,10 @@ export default function UserTable({ className }: UserTableProps) {
     pagination,
     loading,
     error,
-    successMessage,
     setUsers,
     setPagination,
     setLoading,
     setError,
-    setSuccessMessage,
   };
   const [presenter] = useState(() => new AdminPresenter(view));
   const loadUsers = async (page?: number) => {
@@ -64,25 +61,33 @@ export default function UserTable({ className }: UserTableProps) {
   const handleRoleChange = async (userId: string, newRole: string) => {
     const loadingToast = toast.loading('Updating user role...');
 
-    const success = await presenter.changeUserRole(userId, newRole);
-    if (success) {
-      toast.success('User role updated successfully!', { id: loadingToast });
-      presenter.clearMessages();
-    } else {
-      toast.error('Failed to update user role', { id: loadingToast });
+    try {
+      const result = await presenter.changeUserRole(userId, newRole);
+      if (result.success) {
+        toast.success('User role updated successfully!', { id: loadingToast });
+      } else {
+        toast.error('Failed to update user role', { id: loadingToast });
+      }
+    } catch (err) {
+      console.error('Error updating user role:', err);
+      toast.error('An error occurred while updating user role', { id: loadingToast });
     }
   };
   const handleDeleteUser = async (userId: string) => {
     const loadingToast = toast.loading('Deleting user...');
 
-    const success = await presenter.deleteUser(userId);
-    if (success) {
-      toast.success('User deleted successfully!', { id: loadingToast });
-      setDeleteDialogOpen(false);
-      setSelectedUser(null);
-      presenter.clearMessages();
-    } else {
-      toast.error('Failed to delete user', { id: loadingToast });
+    try {
+      const success = await presenter.deleteUser(userId);
+      if (success) {
+        toast.success('User deleted successfully!', { id: loadingToast });
+        setDeleteDialogOpen(false);
+        setSelectedUser(null);
+      } else {
+        toast.error('Failed to delete user', { id: loadingToast });
+      }
+    } catch (err) {
+      console.error('Error deleting user:', err);
+      toast.error('An error occurred while deleting user', { id: loadingToast });
     }
   };
 
@@ -106,8 +111,7 @@ export default function UserTable({ className }: UserTableProps) {
     };
     return <Badge variant={roleColors[role.toLowerCase()] || 'outline'}>{role.charAt(0).toUpperCase() + role.slice(1)}</Badge>;
   };
-
-  if (loading && users.length === 0) {
+  if (loading && (!users || users.length === 0)) {
     return (
       <div className={`rounded-md border ${className || ''}`}>
         <div className="p-8 text-center">
@@ -130,9 +134,9 @@ export default function UserTable({ className }: UserTableProps) {
               <TableHead>Join Date</TableHead>
               <TableHead className="w-[100px]">Actions</TableHead>
             </TableRow>
-          </TableHeader>
+          </TableHeader>{' '}
           <TableBody>
-            {users.length === 0 ? (
+            {!users || users.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
                   No users found

@@ -1,5 +1,5 @@
 import type React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Button, RegisterForm } from '@/components';
@@ -33,7 +33,7 @@ export default function SignUp() {
               </Link>
             </Button>
           </div>
-          <div className="relative w-full flex items-center">
+          {/* <div className="relative w-full flex items-center">
             <div className="flex-grow border-t border-gray-300"></div>
             <span className="flex-shrink mx-4 text-gray-500">or</span>
             <div className="flex-grow border-t border-gray-300"></div>
@@ -41,7 +41,7 @@ export default function SignUp() {
           <Button variant="outline" className="w-full flex items-center">
             <Image src="/Google.svg" alt="Google" width={30} height={30} />
             Sign up with Google
-          </Button>
+          </Button> */}
         </CardFooter>
       </Card>
     </div>

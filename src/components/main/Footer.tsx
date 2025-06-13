@@ -5,7 +5,7 @@ import { ChevronRight } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary-background text-white">
+    <footer className="bg-secondary-background">
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-between">
           <div className="col-span-1 lg:col-span-1 justify-self-start">
@@ -60,7 +60,7 @@ const Footer = () => {
           </div>{' '}
           <div className="col-span-1 md:col-span-2 lg:col-span-2 justify-self-start lg:justify-self-end">
             <h4 className="font-medium mb-4 border-b border-gray-700 pb-2 text-white">Hubungi Kami</h4>
-            <p className="text-gray-300 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, odit!</p>
+            <p className="text-gray-300 mb-4">helpcontact@nutrify.web.id</p>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-10 pt-6 text-center">
