@@ -34,9 +34,7 @@ export default function ServiceWorkerRegistration() {
                 }
               });
             }
-          });
-
-          // Handle service worker messages
+          }); // Handle service worker messages
           navigator.serviceWorker.addEventListener('message', (event) => {
             if (event.data && event.data.type === 'SW_UPDATE_AVAILABLE') {
               toast.success('App updated! Please refresh the page.', {
@@ -49,11 +47,15 @@ export default function ServiceWorkerRegistration() {
           // Check if there's already a service worker controlling the page
           if (registration.active) {
             console.log('Service Worker is active and controlling the page');
-          }
-
-          // Force activation of waiting service worker on page reload
+          } // Force activation of waiting service worker on page reload
           if (registration.waiting) {
-            registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+            const messageChannel = new MessageChannel();
+            messageChannel.port1.onmessage = (event) => {
+              if (event.data.success) {
+                console.log('Service worker skip waiting successful');
+              }
+            };
+            registration.waiting.postMessage({ type: 'SKIP_WAITING' }, [messageChannel.port2]);
           }
         } catch (error) {
           console.error('Service Worker registration failed:', error);
@@ -61,12 +63,16 @@ export default function ServiceWorkerRegistration() {
       };
 
       // Register service worker when page loads
-      registerServiceWorker();
-
-      // Handle page reload to activate new service worker
+      registerServiceWorker(); // Handle page reload to activate new service worker
       const handlePageReload = () => {
         if (navigator.serviceWorker.controller) {
-          navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+          const messageChannel = new MessageChannel();
+          messageChannel.port1.onmessage = (event) => {
+            if (event.data.success) {
+              console.log('Service worker message sent successfully');
+            }
+          };
+          navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' }, [messageChannel.port2]);
         }
       };
 
