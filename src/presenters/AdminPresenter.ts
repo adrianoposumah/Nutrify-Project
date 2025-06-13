@@ -42,7 +42,6 @@ export class AdminPresenter {
       this.view.setLoading(false);
     }
   }
-
   async changeUserRole(userIdToChange: string, newRole: string): Promise<boolean> {
     try {
       this.view.setLoading(true);
@@ -53,6 +52,7 @@ export class AdminPresenter {
       const result = await this.model.changeUserRole(userIdToChange, roleData);
       this.view.setSuccessMessage(result.message);
 
+      // Refresh the users list
       await this.getUsers();
 
       return true;
@@ -64,7 +64,6 @@ export class AdminPresenter {
       this.view.setLoading(false);
     }
   }
-
   async deleteUser(userIdToDelete: string): Promise<boolean> {
     try {
       this.view.setLoading(true);
@@ -74,6 +73,7 @@ export class AdminPresenter {
       const result = await this.model.deleteUser(userIdToDelete);
       this.view.setSuccessMessage(result.message);
 
+      // Refresh the users list
       await this.getUsers();
 
       return true;

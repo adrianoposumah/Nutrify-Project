@@ -131,14 +131,14 @@ export function UserNav({ className }: UserNavProps) {
     <div className={className}>
       {/* Mobile/Tablet version  */}
       <div className="md:hidden space-y-2">
-        <div className="flex items-center space-x-2 p-3  bg-orange-50/50">
+        <div className="flex items-center space-x-2 p-3 ">
           <Avatar className="h-10 w-10 border-2 border-orange-200">
             <AvatarImage src={profilePicture || ''} alt={user.name} />
             <AvatarFallback className="bg-orange-100 text-orange-700 font-medium">{getInitials(user.name)}</AvatarFallback>
           </Avatar>
           <div className="flex-1">
             <div className="flex items-center space-x-2">
-              <p className="text-sm font-medium text-gray-900">{user.name}</p>
+              <p className="text-sm font-medium ">{user.name}</p>
               {user.isVerified && <div className="h-2 w-2 rounded-full bg-green-500" title="Verified" />}
             </div>
             <p className="text-xs text-muted-foreground">{user.email}</p>

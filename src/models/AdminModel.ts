@@ -8,26 +8,32 @@ export class AdminModel {
       if (params?.page) queryParams.append('page', params.page.toString());
       if (params?.limit) queryParams.append('limit', params.limit.toString());
 
-      const url = `/admin/users${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
+      const url = `/api/users${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
       const response = await apiClient.get<ApiResponse<UserListResponse>>(url);
       return response.data;
     } catch (error) {
       throw error;
     }
   }
-
-  async changeUserRole(userIdToChange: string, roleData: ChangeRoleRequest): Promise<AdminMessageResponse> {
+  async getUserById(userId: string): Promise<UserListResponse> {
     try {
-      const response = await apiClient.patch<ApiResponse<AdminMessageResponse>>(`/admin/users/${userIdToChange}/role`, roleData);
+      const response = await apiClient.get<ApiResponse<UserListResponse>>(`/api/users/${userId}`);
       return response.data;
     } catch (error) {
       throw error;
     }
   }
-
+  async changeUserRole(userIdToChange: string, roleData: ChangeRoleRequest): Promise<AdminMessageResponse> {
+    try {
+      const response = await apiClient.patch<ApiResponse<AdminMessageResponse>>(`/api/users/${userIdToChange}/role`, roleData);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
   async deleteUser(userIdToDelete: string): Promise<AdminMessageResponse> {
     try {
-      const response = await apiClient.delete<ApiResponse<AdminMessageResponse>>(`/admin/users/${userIdToDelete}`);
+      const response = await apiClient.delete<ApiResponse<AdminMessageResponse>>(`/api/users/${userIdToDelete}`);
       return response.data;
     } catch (error) {
       throw error;
