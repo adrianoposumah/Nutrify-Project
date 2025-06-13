@@ -50,13 +50,21 @@ export class AdminPresenter {
 
       const roleData: ChangeRoleRequest = { newRole };
       const result = await this.model.changeUserRole(userIdToChange, roleData);
-      this.view.setSuccessMessage(result.message);
+
+      console.log('Change role result:', result); // Debug log
+
+      if (result && result.message) {
+        this.view.setSuccessMessage(result.message);
+      } else {
+        this.view.setSuccessMessage('User role updated successfully');
+      }
 
       // Refresh the users list
       await this.getUsers();
 
       return true;
     } catch (error) {
+      console.error('Change role presenter error:', error); // Debug log
       const apiError = error as ApiError;
       this.view.setError(apiError.message || 'Failed to change user role');
       return false;
@@ -71,13 +79,21 @@ export class AdminPresenter {
       this.view.setSuccessMessage(null);
 
       const result = await this.model.deleteUser(userIdToDelete);
-      this.view.setSuccessMessage(result.message);
+
+      console.log('Delete user result:', result); // Debug log
+
+      if (result && result.message) {
+        this.view.setSuccessMessage(result.message);
+      } else {
+        this.view.setSuccessMessage('User deleted successfully');
+      }
 
       // Refresh the users list
       await this.getUsers();
 
       return true;
     } catch (error) {
+      console.error('Delete user presenter error:', error); // Debug log
       const apiError = error as ApiError;
       this.view.setError(apiError.message || 'Failed to delete user');
       return false;

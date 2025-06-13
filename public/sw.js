@@ -285,5 +285,7 @@ async function handleNextStaticFiles(request) {
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
+    // Send a response back to indicate the message was received
+    event.ports[0]?.postMessage({ success: true });
   }
 });
