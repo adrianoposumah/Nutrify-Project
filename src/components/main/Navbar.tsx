@@ -75,8 +75,8 @@ const Navbar = () => {
             <Link key={route.href} href={route.href} className={cn('text-base font-medium transition-colors hover:text-orange-500', pathname === route.href ? 'text-orange-500' : 'text-muted-foreground')}>
               {route.label}
             </Link>
-          ))}
-        </nav>{' '}
+          ))}{' '}
+        </nav>
         <div className="hidden md:flex items-center space-x-4">
           {!isOnline && (
             <div className="flex items-center text-yellow-600 text-sm">
@@ -86,7 +86,7 @@ const Navbar = () => {
           )}
           <ThemeToggle />
           <UserNav />
-        </div>{' '}
+        </div>
         <div className="md:hidden flex items-center space-x-2">
           {!isOnline && <WifiOff className="h-4 w-4 text-yellow-600" />}
           <ThemeToggle />
@@ -111,8 +111,8 @@ const Navbar = () => {
                     >
                       {route.label}
                     </Link>
-                  ))}
-                </nav>{' '}
+                  ))}{' '}
+                </nav>
                 <div className="mt-6 pt-6 border-t">
                   <UserNav className="w-full" />
                 </div>
